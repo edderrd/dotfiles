@@ -1,0 +1,100 @@
+[include]
+  # define your name and email there
+  path = ~/.gitconfig_local
+[alias]
+  ci = commit
+  co = checkout
+  br = branch
+  undo = reset --hard HEAD~1
+  test = push -f ci HEAD:master
+  who = shortlog -s --
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  l50 = log --pretty=format:'%h - %an - %ar : %s' --graph -50
+  purr = pull --rebase origin
+  st = status -sb
+  ready = rebase -i @{u}
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  standup = "!git log --since yesterday --author `git config user.email` --pretty=short"
+  ignored = ls-files --others -i --exclude-standard
+  wipe = reset --hard HEAD
+  branches = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %09%(authorname) %09%(refname:short)'
+  aco = "!git add -A && git commit"
+  current-branch = "!git rev-parse --abbrev-ref HEAD"
+  set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+  unstage = reset HEAD
+  undo-commit = reset --soft HEAD^
+  poh = push origin HEAD
+  pulloh = pull origin HEAD
+  # show a list of tags sorted by when they were tagged
+  tagage = !sh -c 'git for-each-ref --sort=taggerdate refs/tags --format=\"%(refname:short)\"'
+  # show tags and any tag annotation (tito adds tag annotations for example)
+  tags = tag -n1 -l
+  # url of origin, about 99% of what I use git config --list for
+  cloneurl = config --get remote.origin.url
+  m = checkout master
+  c = commit -v
+  # branches that are merged locally already, note this includes master itself
+  lurkers = branch --merged master
+  # also from https://github.com/SixArm/sixarm_git_gitconfig/blob/master/gitconfig-alias.txt
+  # Thanks to jtolds on stackoverflow
+  rebase-recent = !git rebase -i $(git remote-ref)
+  # Get the current branch name (not so useful in itself, but used in
+  # other aliases)
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  # Push the current branch to the remote "origin", and set it to track
+  # the upstream branch
+  publish = "!git push -u origin $(git branch-name)"
+  # Delete the remote version of the current branch
+  unpublish = "!git push origin :$(git branch-name)"
+  # Delete a branch and recreate it from master — useful if you have, say,
+  # a development branch and a master branch and they could conceivably go
+  # out of sync
+  recreate = "!f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout master && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
+  # Given a merge commit, find the span of commits that exist(ed) on that
+  # branch. Again, not so useful in itself, but used by other aliases.
+  merge-span = "!f() { echo $(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f1)$1$(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f2); }; f"
+
+  # Find the commits that were introduced by a merge
+  merge-log = "!git log `git merge-span .. $1`"
+  # Show the changes that were introduced by a merge
+  merge-diff = "!git diff `git merge-span ... $1`"
+  # As above, but in your difftool
+  merge-difftool = "!git difftool `git merge-span ... $1`"
+
+  # Interactively rebase all the commits on the current branch
+  rebase-branch = "!git rebase -i `git merge-base master HEAD`"
+  # Delete any branches that have been merged into master
+  # See also: https://gist.github.com/robmiller/5133264
+  delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  nah="!git reset --hard; git clean -df;"
+  update-master= fetch origin master:master
+  files="!git diff --name-status --color `git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`.."
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[core]
+  excludesfile = ~/.gitignore_global
+  autocrlf = false
+  editor = /usr/bin/vim
+[push]
+  default = current
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[http]
+  sslVerify = false
+  postBuffer = 1048576000
+[https]
+  postBuffer = 1048576000
+[pull]
+  rebase = false
+[init]
+  defaultBranch = master

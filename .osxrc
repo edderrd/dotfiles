@@ -1,0 +1,148 @@
+autoload bashcompinit          # bash compliation compability with zsh
+bashcompinit
+
+export TERM="xterm-256color"   # pretty colors
+export DEFAULT_USER="$USER"     # hide name in zsh theme
+export LC_CTYPE="en_US.UTF-8"
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# solve too many files open error
+#ulimit -n 4096
+
+# my path
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/.bin:/usr/local/share/npm/bin:~/.composer/vendor/bin
+
+# java latest version
+# export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+if [[ -s "/usr/libexec/java_home" ]]; then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+fi
+
+##
+# Kill process by a port
+##
+function port-kill() {
+    if [ -z "$1" ]; then
+        echo "No port given to kill process";
+    else
+        sudo lsof -i ":$1" | awk '{print $2}' | grep -v PID | xargs kill -9
+    fi
+}
+
+# loading item2 integrations
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# loading RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && export PATH="$PATH:$HOME/.rvm/bin"
+
+# loading flutter
+[[ -s "/usr/local/flutter/bin/flutter" ]] && export PATH="$PATH:/usr/local/flutter/bin"
+
+# GO LANG PATH
+export GOPATH="$HOME/.go"
+export PATH=$PATH:$GOPATH/bin
+
+
+test -e "/etc/bash_completion.d/climate_completion" && source /etc/bash_completion.d/climate_completion
+
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+
+# All the dig info
+function digga() {
+	dig +nocmd "$1" any +multiline +noall +answer
+}
+
+if [[ -s "$HOME/.rbenv/bin/rbenv" ]]; then
+    export PATH=${HOME}/.rbenv/bin:${PATH}
+    eval "$(rbenv init -)"
+fi
+
+########################
+# Node version manager #
+########################
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  #elif [ "$node_version" != "$(nvm version default)" ]; then
+  #  echo "Reverting to nvm default version"
+  #  nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+
+#####
+# lsd
+#####
+if (( $+commands[lsd] )); then
+    alias l='lsd -lh --group-dirs first'
+    alias ls='lsd --group-dirs first'
+    alias ll='lsd -lh --group-dirs first'
+    alias la='lsd -lAh --group-dirs first'
+fi
+
+#####
+# exa
+#####
+if (( $+commands[exa] )); then
+    alias l='exa -lh --icons'
+    alias ls='exa --icons'
+    alias ll='exa -lh --icons'
+    alias la='exa -lah --icons'
+fi
+
+## avr-gcc path used by qmk firmware
+export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
+
+
+################
+#### DOCKER ####
+################
+if (( $+commands[docker] )); then
+    alias dc="docker compose"
+    # docker compose alias
+    drma() { docker rm $(docker ps -q -a); }
+    dria() { docker rmi $(docker images -q); }
+    #dps() {docker ps --format="table {{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Image}}"}
+    dps() {docker ps --format="table {{.Names}}\t{{.Status}}\t{{.Ports}}"}
+    # enter into a running container
+    function dent { docker exec -i -t $1 /bin/bash }
+    # run bash for any image
+    function dbash { docker run --rm -i -t -e TERM=xterm --entrypoint /bin/bash $1 }
+fi
+
+
+## using vim keybindings in terminal
+# bindkey -v
+#zle-keymap-select () {
+  #case $KEYMAP in
+    #vicmd) print -rn -- $terminfo[cvvis];; # block cursor
+    #viins|main) print -rn -- $terminfo[cnorm];; # less visible cursor
+  #esac
+#}
+#VI_MODE=true
+#bindkey -v
+
+

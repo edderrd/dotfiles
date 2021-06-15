@@ -1,0 +1,36 @@
+# reload zsh
+alias reload!='source ~/.zshrc'
+
+alias crontab="VIM_CRONTAB=true crontab"
+
+## default editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# neovim
+alias vim="nvim"
+alias vi="nvim"
+
+alias v="nvim"
+
+##########
+# ripgrep
+##########
+if (( $+commands[rg] )); then
+    alias grep="rg --color=auto"
+else
+    alias grep="grep --colour=auto"
+fi
+
+######################
+# bat: cat with colors
+######################
+if (( $+commands[bat] )); then
+    alias cat="bat"
+fi
+
+# Tool replacements
+# alias cat=bat
+# alias ping='prettyping --nolegend'
+# alias man=tldr
+
