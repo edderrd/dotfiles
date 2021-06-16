@@ -77,7 +77,6 @@
 [core]
   excludesfile = ~/.gitignore_global
   autocrlf = false
-  editor = /usr/bin/vim
 [push]
   default = current
 [filter "media"]
