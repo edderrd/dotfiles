@@ -32,7 +32,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 " Persistent undo even when (n)vim is closed
-set undodir=~/.vim/undodir
+set undodir=~/config/.nvim/undodir
 set undofile
 
 set autoread " Automatically re-read files if unmodified inside Vim
@@ -94,14 +94,15 @@ endif
 set t_Co=256
 set encoding=UTF-8
 
-set background=dark   " Theme color: dark, light
 set fillchars+=stl:\ ,stlnc:\
 
 " ----Folding-------
-set foldmethod=syntax "syntax highlighting items specify folds
+" set foldmethod=syntax "syntax highlighting items specify folds
 "set foldcolumn=1 "defines 1 col at window left, to indicate folding
 let javaScript_fold=1 "activate folding by JS syntax
 set foldlevelstart=99 "start file with all folds opened
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -112,18 +113,17 @@ let &t_EI = "\<Esc>[2 q"
 
 "--------------Plugins-------------------"
 call plug#begin('~/.local/share/vim/plugged')
-
 Plug 'joshdick/onedark.vim'
 "Plug 'scrooloose/nerdtree'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdcommenter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 "Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive' " Premier git plugin
-Plug 'airblade/vim-gitgutter'     " Shows git changes in gutter
+" Plug 'airblade/vim-gitgutter'     " Shows git changes in gutter
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-sleuth'
@@ -131,45 +131,78 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 "Plug 'Shougo/neosnippet.vim'
 "Plug 'Shougo/neosnippet-snippets'
-Plug 'HerringtonDarkholme/yats.vim'
-"Plug 'mileszs/ack.vim'
+" Plug 'HerringtonDarkholme/yats.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'ecomba/vim-ruby-refactoring'
 Plug 'itmammoth/run-rspec.vim'
 Plug 'ngmy/vim-rubocop'
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh' }
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'kristijanhusak/defx-icons'
 Plug 'kristijanhusak/defx-git'
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'https://github.com/airblade/vim-rooter'
-"Plug 'mhinz/vim-startify'
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'nvim-lua/completion-nvim'
+
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+Plug 'folke/lsp-colors.nvim'
+Plug 'folke/trouble.nvim'
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+Plug 'lewis6991/gitsigns.nvim'
+ " Plug 'akinsho/nvim-bufferline.lua'
+Plug 'famiu/nvim-reload'
+" Plug 'romgrk/barbar.nvim'
+" Plug 'folke/which-key.nvim'
 
 call plug#end()
 
-" Set theme after settings
 
+" Set theme after settings
 colorscheme onedark
+
+lua require "my-globals"
+lua require "file-icons"
+
+lua require "lsp"
+lua require "lsp.js-ts-ls"
+lua require "my-treesitter"
+lua require "my-galaxyline"
+lua require "my-gitsigns"
+" lua require "my-bufferline"
 
 source $HOME/.config/nvim/mappings.vim
 source $HOME/.config/nvim/autocommands.vim
 
-source $HOME/.config/nvim/plugins/airline.vim
+" source $HOME/.config/nvim/plugins/airline.vim
 "source $HOME/.config/nvim/plugins/lightline.vim
+
 source $HOME/.config/nvim/plugins/coc.vim
 source $HOME/.config/nvim/plugins/ale.vim
 source $HOME/.config/nvim/plugins/fugitive.vim
-source $HOME/.config/nvim/plugins/ack.vim
+" source $HOME/.config/nvim/plugins/ack.vim
 "source $HOME/.confdg/nvim/plugins/nerdtree.vim
 source $HOME/.config/nvim/plugins/nerdcommenter.vim
 source $HOME/.config/nvim/plugins/languageclient.vim
 "source $HOME/.config/nvim/plugins/cntrl-p.vim
-source $HOME/.config/nvim/plugins/denite.vim
+" source $HOME/.config/nvim/plugins/denite.vim
 source $HOME/.config/nvim/plugins/defx.vim
 source $HOME/.config/nvim/plugins/vim-rooter.vim
-source $HOME/.config/nvim/plugins/gitgutter.vim
-
+" source $HOME/.config/nvim/plugins/gitgutter.vim
+source $HOME/.config/nvim/plugins/lspinstall.vim
+source $HOME/.config/nvim/plugins/trouble.vim
+source $HOME/.config/nvim/plugins/telescope.vim
+source $HOME/.config/nvim/plugins/lsp.vim
+source $HOME/.config/nvim/plugins/onedark.vim
+ source $HOME/.config/nvim/plugins/tabline.vim

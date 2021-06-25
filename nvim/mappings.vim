@@ -1,12 +1,12 @@
 " use comma as leader
 let mapleader = " "
-let mapleader = " "
+let g:mapleader = " "
 "let g:mapleader = ","
 "let g:mapleader = ","
 
 
 " Clear selection highlight
-nmap <leader><space> :nohlsearch<cr>
+" nmap <leader><space> :nohlsearch<cr>
 
 " Fast saves
 nmap <leader>w :w!<cr>
@@ -65,7 +65,7 @@ nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 
 " return to previous buffer with Tab
-nnoremap <special> <Tab> <C-^>
+" nnoremap <special> <Tab> <C-^>
 
 " Split management
 set splitbelow

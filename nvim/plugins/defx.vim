@@ -90,4 +90,3 @@ call defx#custom#column('git', 'indicators', {
   \ 'Unknown'   : '?'
   \ })
 
-let g:netrw_banner=0

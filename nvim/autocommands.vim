@@ -42,6 +42,10 @@ au BufNewFile,BufRead *.tsx setf typescript
 au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
 au BufNewFile,BufRead *.flow set filetype=javascript
+" rc files
+au BufNewFile,BufRead *.*rc set syntax=vim
+au BufNewFile,BufRead *.secrets set syntax=vim
+au BufNewFile,BufRead *.aliases set syntax=vim
 
 " Sync syntax for large files
 "autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
