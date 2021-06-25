@@ -16,12 +16,6 @@ export EDITOR="$VISUAL"
 # my path
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/.bin:/usr/local/share/npm/bin:~/.composer/vendor/bin
 
-# java latest version
-# export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-if [[ -s "/usr/libexec/java_home" ]]; then
-    export JAVA_HOME="$(/usr/libexec/java_home)"
-fi
-
 ##
 # Kill process by a port
 ##
