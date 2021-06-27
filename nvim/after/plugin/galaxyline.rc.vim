@@ -1,3 +1,4 @@
+lua << EOF
 local gl = require("galaxyline")
 local gls = gl.section
 local condition = require("galaxyline.condition")
@@ -241,3 +242,4 @@ gls.right[9] = {
     highlight = {colors.green, colors.lightbg}
   }
 }
+EOF

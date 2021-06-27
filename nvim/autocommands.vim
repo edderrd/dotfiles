@@ -4,7 +4,6 @@ augroup autosourcing
   autocmd BufWritePost init.vim source % | echom "Reloaded " . $MYVIMRC | redraw
 augroup END
 
-
 augroup ReturnToLastCursorPosition
   au BufReadPost *
   \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
@@ -46,6 +45,9 @@ au BufNewFile,BufRead *.flow set filetype=javascript
 au BufNewFile,BufRead *.*rc set syntax=vim
 au BufNewFile,BufRead *.secrets set syntax=vim
 au BufNewFile,BufRead *.aliases set syntax=vim
+" add an line after save
+autocmd FileType php setlocal noeol binary
+
 
 " Sync syntax for large files
 "autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart

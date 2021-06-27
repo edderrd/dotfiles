@@ -67,8 +67,8 @@ set signcolumn=yes
 " Use K to show documentation in preview window.
 nnoremap <leader>kk :call <SID>show_documentation()<CR>
 " Remap for format selected region
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+vmap <leader>F  <Plug>(coc-format-selected)
+nmap <leader>F  <Plug>(coc-format-selected)
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

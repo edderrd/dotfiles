@@ -1,3 +1,4 @@
+lua << EOF
 local colors = require "themes/onedark"
 
 require "nvim-web-devicons".setup {
@@ -109,3 +110,4 @@ require "nvim-web-devicons".setup {
         }
     }
 }
+EOF

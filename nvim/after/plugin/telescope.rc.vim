@@ -1,3 +1,11 @@
+nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>h <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>l <cmd>lua require('telescope.builtin').git_status()<cr>
+nnoremap <leader>; <cmd>lua require('trouble.providers.telescope').open_with_trouble()<cr>
+
+lua << EOF
 local actions = require('telescope.actions')
 local trouble = require('trouble.providers.telescope')
 local themes = require('telescope.themes')
@@ -25,7 +33,6 @@ require('telescope').setup {
         selection_caret = " ",
         entry_prefix = "  ",
         initial_mode = "insert",
-        -- initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "descending",
         layout_strategy = "horizontal",
@@ -55,7 +62,6 @@ require('telescope').setup {
                 ["<C-c>"] = actions.close,
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
-                ["<c-t>"] = trouble.open_with_trouble,
                 ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
                 -- To disable a keymap, put [map] = false
                 -- So, to not map "<C-n>", just put
@@ -74,25 +80,10 @@ require('telescope').setup {
             n = {
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
-                ["<c-t>"] = trouble.open_with_trouble,
                 ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist
-                -- ["<C-i>"] = my_cool_custom_action,
             }
         }
     },
     extensions = {fzy_native = {override_generic_sorter = false, override_file_sorter = true}}
 }
-
-require'telescope'.load_extension('project')
-
-function M.git_files()
-    local opts = themes.get_dropdown {
-        border = true,
-        previewer = false,
-        shorten_path = false,
-    }
-
-    require('telescope.builtin').git_files(opts)
-end
-
-return M
+EOF
