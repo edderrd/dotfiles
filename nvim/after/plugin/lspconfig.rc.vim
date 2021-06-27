@@ -50,7 +50,6 @@ if client.resolved_capabilities.document_formatting then
   vim.api.nvim_command [[augroup END]]
 end
 
-require'completion'.on_attach(client, bufnr)
 
 --protocol.SymbolKind = { }
 protocol.CompletionItemKind = {
@@ -82,14 +81,15 @@ protocol.CompletionItemKind = {
   }
 end
 
+
 nvim_lsp.flow.setup {
   on_attach = on_attach
-  }
+}
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
-  }
+}
 
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
@@ -160,6 +160,11 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
     }
   }
 )
+
+nvim_lsp.rust_analyzer.setup({
+  on_attach=on_attach,
+  capabilities=capabilities,
+})
 
 require('lsp.efm')
 require('lsp.ts')

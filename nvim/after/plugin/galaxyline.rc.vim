@@ -138,7 +138,7 @@ gls.right[1] = {
         return ""
       end
     end,
-    highlight = {colors.grey_fg2, colors.statusline_bg}
+    highlight = {colors.grey_fg2, colors.background}
   }
 }
 

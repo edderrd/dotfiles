@@ -3,16 +3,6 @@ Plug 'joshdick/onedark.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive' " Premier git plugin
 " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-" Plug 'sheerun/vim-polyglot'
-" Plug 'tpope/vim-sleuth'
-" Plug 'editorconfig/editorconfig-vim'
-" Plug 'w0rp/ale'
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'tpope/vim-rails'
-" Plug 'ecomba/vim-ruby-refactoring'
-" Plug 'itmammoth/run-rspec.vim'
-" Plug 'ngmy/vim-rubocop'
-" Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh' }
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'kristijanhusak/defx-icons'
 Plug 'kristijanhusak/defx-git'
@@ -26,7 +16,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'folke/lsp-colors.nvim'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-compe'
 Plug 'mhartington/formatter.nvim'
 Plug 'folke/trouble.nvim'
 

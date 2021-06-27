@@ -80,9 +80,9 @@ if has("nvim")
 endif
 
 " set spell
-set spelllang=en,es  "Correct words using english and spanish
+" set spelllang=en,es  "Correct words using english and spanish
 " Spellcheck for features markdown
-au BufRead,BufNewFile *.md setlocal spell
+" au BufRead,BufNewFile *.md setlocal spell
 
 set termguicolors    " Enable terminal true colors
 set winblend=0       " popup window transparency
