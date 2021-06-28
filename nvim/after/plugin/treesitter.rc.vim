@@ -14,7 +14,6 @@ require'nvim-treesitter.configs'.setup {
         "php",
         "json",
         "yaml",
-        "swift",
         "html",
         "scss",
         "nix",
