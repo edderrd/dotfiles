@@ -67,6 +67,12 @@ if (( $+commands[exa] )); then
     alias la='exa -lah --icons'
 fi
 
+# GO LANG PATH
+if (( $+commands[go] )); then
+    export GOPATH="$HOME/.go"
+    export PATH=$PATH:$GOPATH/bin
+fi
+
 # Loading the SSH key
 # sudo apt install keychain
 /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa

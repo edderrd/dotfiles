@@ -163,11 +163,6 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
   }
 )
 
-nvim_lsp.rust_analyzer.setup({
-  on_attach=on_attach,
-  capabilities=capabilities,
-})
-
 require('lsp.efm')
 require('lsp.ts')
 require('lsp.bash')

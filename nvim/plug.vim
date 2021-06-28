@@ -17,6 +17,7 @@ Plug 'kabouzeid/nvim-lspinstall'
 Plug 'folke/lsp-colors.nvim'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
+Plug 'onsails/lspkind-nvim'
 Plug 'mhartington/formatter.nvim'
 Plug 'folke/trouble.nvim'
 

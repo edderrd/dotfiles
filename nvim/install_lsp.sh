@@ -1,9 +1,8 @@
-#! /bin/sh
+#! /bin/bash
 
 NPM_PACKAGES=(
   "diagnostic-languageserver"
   "vim-language-server"
-  "sql-language-server"
   "typescript-language-server"
   "vscode-json-languageserver"
   "vscode-css-languageserver-bin"
