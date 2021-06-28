@@ -57,12 +57,17 @@ if (( $+commands[docker] )); then
     function dbash { docker run --rm -i -t -e TERM=xterm --entrypoint /bin/bash $1 }
 fi
 
-###
-# exa
-#####
+#######
+# exa #
+#######
 if (( $+commands[exa] )); then
     alias l='exa -lh --icons'
     alias ls='exa --icons'
     alias ll='exa -lh --icons'
     alias la='exa -lah --icons'
 fi
+
+# Loading the SSH key
+# sudo apt install keychain
+/usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa
+source $HOME/.keychain/$HOST-sh
