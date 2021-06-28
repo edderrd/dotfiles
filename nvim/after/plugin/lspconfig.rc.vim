@@ -3,6 +3,8 @@ if !exists('g:lspconfig')
   finish
 endif
 
+set signcolumn=yes
+
 lua << EOF
 --vim.lsp.set_log_level("debug")
 EOF
