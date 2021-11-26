@@ -34,3 +34,4 @@ fi
 # alias ping='prettyping --nolegend'
 # alias man=tldr
 
+alias art="php artisan"

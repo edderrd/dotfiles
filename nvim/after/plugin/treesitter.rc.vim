@@ -34,7 +34,7 @@ require'nvim-treesitter.configs'.setup {
     },
     highlight = {
       enable = true,
-      -- disable = { "markdown" },
+      disable = { "markdown" },
     },
     indent = {
         enable = false,

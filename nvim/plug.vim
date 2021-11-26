@@ -32,5 +32,7 @@ Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'cohama/lexima.vim'
 " Plug 'folke/which-key.nvim'
+Plug 'editorconfig/editorconfig-vim'
+
 
 call plug#end()

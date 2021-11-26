@@ -13,9 +13,9 @@ set guifont=JetBrainsMono\ Nerd\ Font:h14
 
 " 4 spaces indentation
 set smartindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 set cindent " Indent using C
 set shiftround  " When shifting lines, round the indentation to nearest
