@@ -38,7 +38,7 @@ au BufNewFile,BufRead *.es6 setf javascript
 " TypeScript
 au BufNewFile,BufRead *.tsx setf typescript
 " Markdown
-au BufNewFile,BufRead *.md set filetype=markdown
+"au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
 au BufNewFile,BufRead *.flow set filetype=javascript
 " rc files

@@ -56,6 +56,11 @@ if (( $+commands[go] )); then
     export PATH=$PATH:$GOPATH/bin
 fi
 
+# Rust (cargo)
+if (( $+commands[cargo] )); then
+  export PATH=$PATH:~/.cargo/bin
+fi
+
 test -e "/etc/bash_completion.d/climate_completion" && source /etc/bash_completion.d/climate_completion
 
 export PATH="/usr/local/opt/openssl/bin:$PATH"
