@@ -63,6 +63,19 @@ keymap("n", "<S-Down>", ":resize -10", opts) -- Decrease resize
 keymap("n", "<expr>j", "v:count ? 'j' : 'gj'", opts)
 keymap("n", "<expr>k", "v:count ? 'k' : 'gk'", opts)
 
+-- always keep search centered
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+keymap("n", "J", "mzJ`z", opts)
+
+---- Insert ----
+
+-- undo break points
+keymap("i", ",", ",<c-g>u", opts)
+keymap("i", ".", ".<c-g>u", opts)
+keymap("i", "!", "!<c-g>u", opts)
+keymap("i", "?", "?<c-g>u", opts)
+
 ---- Visual ----
 
 -- Move line up and down
