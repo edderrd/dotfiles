@@ -46,7 +46,10 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
 	-- color scheme
-	use("navarasu/onedark.nvim") -- One dark theme with Treesitter support
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 
 	use("christoomey/vim-tmux-navigator") -- Tmux navigation <control>arrows
 
@@ -92,7 +95,7 @@ return packer.startup(function(use)
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
-	use("tami5/lspsaga.nvim") -- lightweight lsp plugin
+	use("jose-elias-alvarez/nvim-lsp-ts-utils") -- LSP typescript utilities
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
