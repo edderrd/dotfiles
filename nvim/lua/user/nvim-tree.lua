@@ -44,7 +44,7 @@ nvim_tree.setup({
 		"dashboard",
 		"alpha",
 	},
-	auto_close = true,
+	auto_close = false,
 	open_on_tab = false,
 	hijack_cursor = false,
 	update_cwd = true,
@@ -72,7 +72,9 @@ nvim_tree.setup({
 	},
 	filters = {
 		dotfiles = false,
-		custom = {},
+		custom = {
+			".git",
+		},
 	},
 	git = {
 		enable = true,
@@ -111,6 +113,11 @@ nvim_tree.setup({
 		folder_arrows = 1,
 		tree_width = 30,
 	},
+	actions = {
+		open_file = {
+			quit_on_open = true,
+		},
+	},
 })
 
-vim.cmd([[ let g:nvim_tree_quit_on_open = 1 ]])
+-- vim.cmd([[ let g:nvim_tree_quit_on_open = 1 ]])

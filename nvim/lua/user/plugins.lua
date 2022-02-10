@@ -86,7 +86,7 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim") -- speed up loading Lua modules
 	use("lukas-reineke/indent-blankline.nvim") -- adds indentiation guides to all lines
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
-	use("moll/vim-bbye") -- delete buffers without deleting windows
+	-- use("moll/vim-bbye") -- delete buffers without deleting windows
 
 	use("akinsho/bufferline.nvim") -- tabline manager
 
