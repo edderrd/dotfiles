@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 vim.cmd([[
-nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>
 " nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>
 nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep()<cr>
 noremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
@@ -38,8 +38,11 @@ telescope.setup({
 			height = 0.80,
 			preview_cutoff = 120,
 		},
+		find_files = {
+			hidden = true,
+		},
 		file_sorter = require("telescope.sorters").get_fuzzy_file,
-		file_ignore_patterns = { "node_modules" },
+		file_ignore_patterns = { "node_modules", ".git" },
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		path_display = { "truncate" },
 		winblend = 0,
@@ -53,7 +56,6 @@ telescope.setup({
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		-- Developer configurations: Not meant for general override
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-
 		mappings = {
 			n = {
 				["q"] = actions.close,
