@@ -78,8 +78,14 @@ local function lsp_keymaps(bufnr)
 		opts
 	)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gj", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gk", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+	vim.api.nvim_buf_set_keymap(
+		bufnr,
+		"n",
+		"ej",
+		'<cmd>lua vim.diagnostic.goto_next({ border = "rounded", wrap = true })<CR>',
+		opts
+	)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "ek", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",

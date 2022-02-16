@@ -49,6 +49,22 @@ au BufNewFile,BufRead *.aliases set syntax=vim
 autocmd FileType php setlocal noeol binary
 
 
+" Formatting
+
+let useformatting=1
+function DoFormat()
+  if g:useformatting
+    lua vim.lsp.buf.formatting_sync(nil, 1000)
+  endif
+endfunction
+
+if useformatting
+  autocmd BufWritePre *.md call DoFormat()
+  autocmd BufWritePre *.php call DoFormat()
+endif
+
+
 " Sync syntax for large files
+
 "autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 "autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
