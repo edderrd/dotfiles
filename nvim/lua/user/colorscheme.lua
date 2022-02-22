@@ -48,8 +48,8 @@ if not status_ok then
 	return
 end
 
-vim.cmd([[
-  hi Pmenu ctermbg=NONE guibg=NONE
-  hi Pmenu ctermbg=NONE guibg=NONE
-  hi NormalFloat ctermbg=NONE guibg=NONE
-]])
+-- vim.cmd([[
+--   hi Pmenu ctermbg=NONE guibg=NONE
+--   hi Pmenu ctermbg=NONE guibg=NONE
+--   hi NormalFloat ctermbg=NONE guibg=NONE
+-- ]])

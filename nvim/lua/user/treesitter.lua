@@ -3,6 +3,13 @@ if not status_ok then
 	return
 end
 
+-- allow to fold using treesitter
+vim.cmd([[
+  set foldlevel=20
+  set foldmethod=expr
+  set foldexpr=nvim_treesitter#foldexpr()
+]])
+
 configs.setup({
 	ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -19,5 +26,15 @@ configs.setup({
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
+	},
+	incremental_selection = {
+		enable = true,
+		lookahead = true,
+		keymaps = {
+			["af"] = "@function.outer",
+			["if"] = "@function.inner",
+			["ac"] = "@call.outer",
+			["ic"] = "@call.inner",
+		},
 	},
 })

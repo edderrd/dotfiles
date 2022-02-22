@@ -141,7 +141,7 @@ default.diff = {
 			fg = default.colors.grey_fg2,
 			bg = default.colors.background,
 		},
-		icon = " ",
+		icon = "  ",
 	},
 
 	change = {
@@ -306,17 +306,17 @@ default.empty_space = {
 
 -- this matches the vi mode color
 default.empty_spaceColored = {
-	provider = default.statusline_style.left,
+	provider = default.statusline_style.right,
 	hl = function()
 		return {
 			fg = default.mode_colors[vim.fn.mode()][2],
-			bg = default.colors.one_bg2,
+			bg = default.colors.lightbg,
 		}
 	end,
 }
 
 default.mode_icon = {
-	provider = default.statusline_style.vi_mode_icon,
+	provider = " " .. default.statusline_style.vi_mode_icon,
 	hl = function()
 		return {
 			fg = default.colors.background,
@@ -338,8 +338,8 @@ default.separator_right = {
 		return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
 	end,
 	hl = {
-		fg = default.colors.one_bg,
-		bg = default.colors.one_bg,
+		fg = default.colors.background,
+		bg = default.colors.background,
 	},
 }
 
@@ -350,7 +350,7 @@ default.separator_right2 = {
 	end,
 	hl = {
 		fg = default.colors.green,
-		bg = default.colors.one_bg,
+		bg = default.colors.background,
 	},
 }
 
@@ -399,11 +399,11 @@ default.right = {}
 
 -- left
 add_table(default.left, default.main_icon)
+add_table(default.left, default.empty_space2)
+add_table(default.left, default.mode_icon)
+add_table(default.left, default.empty_spaceColored)
 add_table(default.left, default.file_name)
 add_table(default.left, default.dir_name)
-add_table(default.left, default.diff.add)
-add_table(default.left, default.diff.change)
-add_table(default.left, default.diff.remove)
 add_table(default.left, default.diagnostic.error)
 add_table(default.left, default.diagnostic.warning)
 add_table(default.left, default.diagnostic.hint)
@@ -412,12 +412,11 @@ add_table(default.left, default.diagnostic.info)
 add_table(default.middle, default.lsp_progress)
 
 -- right
-add_table(default.right, default.lsp_icon)
+-- add_table(default.right, default.lsp_icon)
+add_table(default.right, default.diff.add)
+add_table(default.right, default.diff.change)
+add_table(default.right, default.diff.remove)
 add_table(default.right, default.git_branch)
-add_table(default.right, default.empty_space)
-add_table(default.right, default.empty_spaceColored)
-add_table(default.right, default.mode_icon)
-add_table(default.right, default.empty_space2)
 add_table(default.right, default.separator_right)
 add_table(default.right, default.separator_right2)
 add_table(default.right, default.position_icon)
