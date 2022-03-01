@@ -46,6 +46,7 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
 	-- color scheme
+	use("navarasu/onedark.nvim")
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",

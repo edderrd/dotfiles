@@ -16,6 +16,7 @@ default.icon_styles = {
 		main_icon = "  ",
 		vi_mode_icon = " ",
 		position_icon = " ",
+		empty = " ",
 	},
 	arrow = {
 		left = "",
@@ -23,6 +24,7 @@ default.icon_styles = {
 		main_icon = "  ",
 		vi_mode_icon = " ",
 		position_icon = " ",
+		empty = " ",
 	},
 
 	block = {
@@ -31,6 +33,7 @@ default.icon_styles = {
 		main_icon = "   ",
 		vi_mode_icon = "  ",
 		position_icon = "  ",
+		empty = " ",
 	},
 
 	round = {
@@ -39,6 +42,7 @@ default.icon_styles = {
 		main_icon = " 勇",
 		vi_mode_icon = " ",
 		position_icon = " ",
+		empty = " ",
 	},
 
 	slant = {
@@ -47,6 +51,7 @@ default.icon_styles = {
 		main_icon = "  ",
 		vi_mode_icon = " ",
 		position_icon = " ",
+		empty = " ",
 	},
 }
 
@@ -139,7 +144,7 @@ default.diff = {
 		provider = "git_diff_added",
 		hl = {
 			fg = default.colors.grey_fg2,
-			bg = default.colors.background,
+			bg = "NONE",
 		},
 		icon = "  ",
 	},
@@ -148,7 +153,7 @@ default.diff = {
 		provider = "git_diff_changed",
 		hl = {
 			fg = default.colors.grey_fg2,
-			bg = default.colors.background,
+			bg = "NONE",
 		},
 		icon = "  ",
 	},
@@ -157,7 +162,7 @@ default.diff = {
 		provider = "git_diff_removed",
 		hl = {
 			fg = default.colors.grey_fg2,
-			bg = default.colors.background,
+			bg = "NONE",
 		},
 		icon = "  ",
 	},
@@ -170,7 +175,7 @@ default.git_branch = {
 	end,
 	hl = {
 		fg = default.colors.grey_fg2,
-		bg = default.colors.background,
+		bg = "NONE",
 	},
 	icon = "  ",
 }
@@ -263,7 +268,7 @@ default.lsp_icon = {
 	enabled = default.shortline or function(winid)
 		return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 70
 	end,
-	hl = { fg = default.colors.grey_fg2, bg = default.colors.background },
+	hl = { fg = default.colors.grey_fg2, bg = "NONE" },
 }
 
 default.mode_colors = {
@@ -332,25 +337,25 @@ default.empty_space2 = {
 	hl = default.mode_hl,
 }
 
+default.separator_empty = {
+	provider = default.statusline_style.empty,
+	enabled = default.shortline or function(winid)
+		return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
+	end,
+	hl = {
+		fg = default.colors.background,
+		bg = "NONE",
+	},
+}
+
 default.separator_right = {
 	provider = default.statusline_style.left,
 	enabled = default.shortline or function(winid)
 		return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
 	end,
 	hl = {
-		fg = default.colors.background,
-		bg = default.colors.background,
-	},
-}
-
-default.separator_right2 = {
-	provider = default.statusline_style.left,
-	enabled = default.shortline or function(winid)
-		return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
-	end,
-	hl = {
 		fg = default.colors.green,
-		bg = default.colors.background,
+		bg = "NONE",
 	},
 }
 
@@ -417,8 +422,8 @@ add_table(default.right, default.diff.add)
 add_table(default.right, default.diff.change)
 add_table(default.right, default.diff.remove)
 add_table(default.right, default.git_branch)
+add_table(default.right, default.separator_empty)
 add_table(default.right, default.separator_right)
-add_table(default.right, default.separator_right2)
 add_table(default.right, default.position_icon)
 add_table(default.right, default.current_line)
 
@@ -429,7 +434,8 @@ default.components.active[3] = default.right
 -- components are divided in 3 sections
 feline.setup({
 	theme = {
-		bg = default.colors.background,
+		-- bg = default.colors.background,
+		bg = "NONE",
 		fg = default.colors.fg,
 	},
 	components = default.components,
