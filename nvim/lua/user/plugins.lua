@@ -111,6 +111,7 @@ return packer.startup(function(use)
 
 	use("ellisonleao/glow.nvim") -- markdown preview
 	use("tpope/vim-surround")
+	use("sindrets/diffview.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
