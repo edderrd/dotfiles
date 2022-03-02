@@ -12,6 +12,12 @@ vim.g.indent_blankline_filetype_exclude = {
 	"neogitstatus",
 	"NvimTree",
 	"Trouble",
+	"markdown",
+	"log",
+	"json",
+	"NvimTree",
+	"git",
+	"TelescopePrompt",
 }
 vim.g.indentLine_enabled = 1
 -- vim.g.indent_blankline_char = "│"
@@ -42,6 +48,10 @@ vim.g.indent_blankline_context_patterns = {
 	"catch_clause",
 	"import_statement",
 	"operation_type",
+	"list_literal",
+	"selector",
+	"for",
+	"while",
 }
 -- HACK: work-around for https://github.com/lukas-reineke/indent-blankline.nvim/issues/59
 vim.wo.colorcolumn = "99999"
@@ -61,6 +71,7 @@ indent_blankline.setup({
 	-- show_end_of_line = true,
 	-- space_char_blankline = " ",
 	show_current_context = true,
+	show_foldtext = false,
 	-- show_current_context_start = true,
 	-- char_highlight_list = {
 	--   "IndentBlanklineIndent1",
