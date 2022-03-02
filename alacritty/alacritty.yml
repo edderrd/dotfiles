@@ -1,12 +1,13 @@
 env:
-  TERM_PROGRAM: alacritty
+  # TERM_PROGRAM: alacritty
+  TERM: xterm-256color
 window:
-  decorations: full 
+  decorations: none
   dimensions:
     columns: 140
     lines: 40
   padding:
-    x: 0
+    x: 2
     y: 0
   dynamic_title: true
   dynamic_padding: true
@@ -16,18 +17,21 @@ scrolling:
 font:
   normal:
     # family: JetBrainsMono Nerd Font
-    family: Hack Nerd Font
-    style: Regular
+    # family: Hack Nerd Font
+    # style: Regular
+    family: FiraCode Nerd Font
+    # The `style` can be specified to pick a specific face.
+    style: Retina
   # Point size
   size: 14.0
   offset:
     x: 0
-    y: 2
+    y: 0
   glyph_offset:
     x: 0
-    y: 2
-  # use_thin_strokes: true
-# draw_bold_text_with_bright_colors: true
+    y: 0
+  use_thin_strokes: true
+draw_bold_text_with_bright_colors: true
 # One dark theme
 # Colors (One Dark)
 colors:
@@ -238,7 +242,8 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.95
+# background_opacity: 0.95
+background_opacity: 1
 
 
 selection:
@@ -282,7 +287,7 @@ selection:
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  #unfocused_hollow: true
+  unfocused_hollow: true
 
   # Thickness of the cursor relative to the cell width as floating point number
   # from `0.0` to `1.0`.
@@ -315,7 +320,7 @@ live_config_reload: true
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
 
-#mouse:
+mouse:
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -325,7 +330,7 @@ live_config_reload: true
   #triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
+  hide_when_typing: true 
 
 # Regex hints
 #
