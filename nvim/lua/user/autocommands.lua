@@ -37,7 +37,7 @@ exec(
 let useformatting=1
 function! AutoFormat()
   if g:useformatting
-    lua vim.lsp.buf.formatting_sync()
+    lua vim.lsp.buf.formatting_sync(nil, 1000)
   endif
 endfunction
 
@@ -70,7 +70,7 @@ exec(
 	[[
   augroup YankHighlight
     autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}
   augroup end
 ]],
 	false
