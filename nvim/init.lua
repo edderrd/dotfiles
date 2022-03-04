@@ -1,7 +1,7 @@
 require("user.impatient")
 require("user.options")
 require("user.keymaps")
-vim.cmd("runtime ./automappings.vim")
+require("user.autocommands")
 require("user.plugins")
 require("user.colorscheme")
 require("user.treesitter")

@@ -42,6 +42,10 @@ local options = {
 	wrap = true, -- display lines as one long line
 	termguicolors = true, -- terminal with true colors
 	timeout = true, -- timeout when using leader key
+	hidden = true, -- enable background buffers
+	history = 100, -- remember N line in history
+	lazyredraw = true, -- faster scrolling
+	synmaxcol = 240, -- max column for syntax highlight
 }
 
 vim.opt.shortmess:append("c")
