@@ -34,23 +34,6 @@ au BufNewFile,BufRead *.aliases set syntax=vim
 
 exec(
 	[[
-let useformatting=1
-function! AutoFormat()
-  if g:useformatting
-    lua vim.lsp.buf.formatting_sync(nil, 1000)
-  endif
-endfunction
-
-if useformatting
-  autocmd BufWritePre *.md call AutoFormat()
-  autocmd BufWritePre *.php call AutoFormat()
-endif
-]],
-	false
-)
-
-exec(
-	[[
 function! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
@@ -82,4 +65,9 @@ cmd([[autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0]])
 -- 2 spaces for selected filetypes
 cmd([[
   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
+]])
+
+-- 4 spaces for selected filetypes
+cmd([[
+  autocmd FileType php setlocal shiftwidth=4 tabstop=4
 ]])
