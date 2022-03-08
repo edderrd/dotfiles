@@ -52,6 +52,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # GO LANG PATH
 if (( $+commands[go] )); then
+    # mkdir -p $HOME/.go/{bin,src,pkg}
     export GOPATH="$HOME/.go"
     export GOROOT="$(brew --prefix golang)/libexec"
     export PATH=$PATH:$GOPATH/bin
@@ -110,7 +111,7 @@ load-nvmrc
 #####
 # lsd
 #####
-if (( $+commands[lsd] )); then 
+if (( $+commands[lsd] )); then
     alias l='lsd -lh --group-dirs first'
     alias ls='lsd --group-dirs first'
     alias ll='lsd -lh --group-dirs first'
