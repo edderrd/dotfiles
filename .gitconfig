@@ -69,6 +69,7 @@
   nah="!git reset --hard; git clean -df;"
   update-master= fetch origin master:master
   files="!git diff --name-status --color `git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`.."
+  open = "!hub browse"
 [color]
   branch = auto
   diff = auto
