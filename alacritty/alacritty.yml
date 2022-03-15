@@ -16,14 +16,11 @@ scrolling:
   multiplier: 3
 font:
   normal:
-    # family: JetBrainsMono Nerd Font
-    # family: Hack Nerd Font
-    # style: Regular
-    family: FiraCode Nerd Font
+    family: Hack Nerd Font Mono
     # The `style` can be specified to pick a specific face.
-    style: Retina
+    style: Regular
   # Point size
-  size: 14.0
+  size: 15
   offset:
     x: 0
     y: 0
@@ -330,7 +327,7 @@ mouse:
   #triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  hide_when_typing: true 
+  hide_when_typing: true
 
 # Regex hints
 #
