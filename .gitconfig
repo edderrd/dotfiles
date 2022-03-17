@@ -5,6 +5,7 @@
   ci = commit
   co = checkout
   br = branch
+  d = diff
   undo = reset --hard HEAD~1
   test = push -f ci HEAD:master
   who = shortlog -s --
@@ -33,8 +34,6 @@
   cloneurl = config --get remote.origin.url
   m = checkout master
   c = commit -v
-  # branches that are merged locally already, note this includes master itself
-  lurkers = branch --merged master
   # also from https://github.com/SixArm/sixarm_git_gitconfig/blob/master/gitconfig-alias.txt
   # Thanks to jtolds on stackoverflow
   rebase-recent = !git rebase -i $(git remote-ref)
@@ -66,9 +65,11 @@
   # Delete any branches that have been merged into master
   # See also: https://gist.github.com/robmiller/5133264
   delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
-  nah="!git reset --hard; git clean -df;"
-  update-master= fetch origin master:master
-  files="!git diff --name-status --color `git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`.."
+  nah = "!git reset --hard; git clean -df;"
+  update-master = fetch origin master:master
+  update-main = fetch origin main:main
+  update-dev = fetch origin dev:dev
+  files = "!git diff --name-status --color `git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`.."
   open = "!hub browse"
 [color]
   branch = auto
