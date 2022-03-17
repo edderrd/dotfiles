@@ -5,13 +5,12 @@ if not status_ok then
 end
 
 vim.cmd([[
-nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>
-" nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>
-nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep()<cr>
-noremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>H <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>l <cmd>lua require('telescope.builtin').git_status()<cr>
-nnoremap <leader>p <cmd>lua require('telescope.builtin').commands()<cr>
+nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files({ hidden = true, preview_title = false, prompt_title = false, results_title = false })<cr>
+nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
+noremap <leader>b <cmd>lua require('telescope.builtin').buffers({ prompt_prefix = " ﬘ ", preview_title = false, prompt_title = false, results_title = false })<cr>
+nnoremap <leader>H <cmd>lua require('telescope.builtin').help_tags({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
+nnoremap <leader>l <cmd>lua require('telescope.builtin').git_status({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
+nnoremap <leader>p <cmd>lua require('telescope.builtin').commands({ prompt_prefix = " גּ ", preview_title = false, prompt_title = false, results_title = false })<cr>
 ]])
 
 local actions = require("telescope.actions")
@@ -45,7 +44,7 @@ telescope.setup({
 		file_ignore_patterns = { "node_modules", ".git" },
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		path_display = { "truncate" },
-		winblend = 0,
+		winblend = 6,
 		border = {},
 		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 		color_devicons = true,
