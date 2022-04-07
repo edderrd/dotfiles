@@ -32,6 +32,14 @@ au BufNewFile,BufRead *.aliases set syntax=vim
 	false
 )
 
+-- rc set automatically filetype
+exec(
+	[[
+au BufNewFile,BufRead *.sol set ft=solidity
+]],
+	false
+)
+
 exec(
 	[[
 function! TrimWhitespace()
