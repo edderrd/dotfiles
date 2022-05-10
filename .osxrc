@@ -126,6 +126,7 @@ if (( $+commands[exa] )); then
     alias ls='exa --icons'
     alias ll='exa -lh --icons'
     alias la='exa -lah --icons'
+    alias tree='exa --tree --icons'
 fi
 
 ## avr-gcc path used by qmk firmware
