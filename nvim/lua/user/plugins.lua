@@ -47,10 +47,7 @@ return packer.startup(function(use)
 
 	-- color scheme
 	use("navarasu/onedark.nvim")
-	use({
-		"catppuccin/nvim",
-		as = "catppuccin",
-	})
+	use("rmehri01/onenord.nvim")
 
 	use("christoomey/vim-tmux-navigator") -- Tmux navigation <control>arrows
 

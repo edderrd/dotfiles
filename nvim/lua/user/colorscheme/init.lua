@@ -1,4 +1,4 @@
-local colorscheme = "onedark"
+local colorscheme = "onenord"
 
 -- import lua module for setup
 local status_ok_scheme, scheme = pcall(require, colorscheme)
@@ -22,9 +22,3 @@ if not status_ok then
 	vim.notify("colorscheme " .. colorscheme .. " not found!")
 	return
 end
-
--- vim.cmd([[
---   hi Pmenu ctermbg=NONE guibg=NONE
---   hi Pmenu ctermbg=NONE guibg=NONE
---   hi NormalFloat ctermbg=NONE guibg=NONE
--- ]])

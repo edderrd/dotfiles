@@ -54,7 +54,6 @@ bufferline.setup({
 			-- filter out by buffer name
 		end,
 	},
-
 	highlights1 = {
 		fill = {
 			guifg = { attribute = "fg", highlight = "#ff0000" },
