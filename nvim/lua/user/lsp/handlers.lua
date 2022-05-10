@@ -134,4 +134,14 @@ end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
+-- custom server definitions
+local servers = { "jsonls", "sumneko_lua" }
+-- setup servers using a file definition
+for _, lsp in pairs(servers) do
+	local server_opts = require("user.lsp.settings." .. lsp)
+	local opts = vim.tbl_deep_extend("force", server_opts, { on_attach = M.on_attach, capabilities = M.capabilities })
+
+	require("lspconfig")[lsp].setup(opts)
+end
+
 return M
