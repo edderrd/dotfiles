@@ -1,102 +1,41 @@
 env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacrittywill
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
-  TERM_PROGRAM: alacritty
-
+  # TERM_PROGRAM: alacritty
+  TERM: xterm-256color
 window:
-  # Window dimensions (changes require restart)
-  #
-  # Number of lines/columns (not pixels) in the terminal. The number of columns
-  # must be at least `2`, while using a value of `0` for columns and lines will
-  # fall back to the window manager's recommended size.
+  decorations: none
   dimensions:
     columns: 140
     lines: 40
-
-  # Window padding (changes require restart)
-  #
-  # Blank space added around the window in pixels. This padding is scaled
-  # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 4
-    y: 4
-
-  # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: true
-
-  # Window decorations
-  #
-  # Values for `decorations`:
-  #     - full: Borders and title bar
-  #     - none: Neither borders nor title bar
-  #
-  # Values for `decorations` (macOS only):
-  #     - transparent: Title bar, transparent background and title bar buttons
-  #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: buttonless
-  # Allow terminal applications to change Alacritty's window title.
+    x: 2
+    y: 0
   dynamic_title: true
-
+  dynamic_padding: true
 scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
   history: 10000
-  # Scrolling distance multiplier.
   multiplier: 3
-
-# Font configuration
 font:
-  # Normal (roman) font face
   normal:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font Mono
+    # The `style` can be specified to pick a specific face.
     style: Regular
-  # Bold font face
-  bold:
-    family: JetBrainsMono Nerd Font
-    style: Bold
-  italic:
-    family: JetBrainsMono Nerd Font
-    style: Italic
-  bold_italic:
-    family: JetBrainsMono Nerd Font
-    style: Bold Italic
   # Point size
-  size: 14.3
-  # Offset is the extra space around each character. `offset.y` can be thought
-  # of as modifying the line spacing, and `offset.x` as modifying the letter
-  # spacing.
+  size: 15
   offset:
     x: 0
-    y: 3
-  # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom. Increasing `x` moves the glyph to the
-  # right, increasing `y` moves the glyph upward.
+    y: 0
   glyph_offset:
     x: 0
-    y: 1
-  # Thin stroke font rendering (macOS only)
-  #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
-  # it is recommended to set `use_thin_strokes` to `false`.
+    y: 0
   use_thin_strokes: true
-
-# If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
-
 # One dark theme
 # Colors (One Dark)
 colors:
   # Default colors
   primary:
-    # background: '0x1e2127'
     background: '#1d1f21'
     foreground: '0xabb2bf'
-
   # Normal colors
   normal:
     black:   '0x1e2127'
@@ -107,7 +46,6 @@ colors:
     magenta: '0xc678dd'
     cyan:    '0x56b6c2'
     white:   '0xabb2bf'
-
   # Bright colors
   bright:
     black:   '0x5c6370'
@@ -301,7 +239,9 @@ bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
+# background_opacity: 0.95
 background_opacity: 1
+
 
 selection:
   # This string contains all characters that are used as separators for
@@ -344,7 +284,7 @@ selection:
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  #unfocused_hollow: true
+  unfocused_hollow: true
 
   # Thickness of the cursor relative to the cell width as floating point number
   # from `0.0` to `1.0`.
@@ -377,7 +317,7 @@ live_config_reload: true
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
 
-#mouse:
+mouse:
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -387,7 +327,7 @@ live_config_reload: true
   #triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
+  hide_when_typing: true
 
 # Regex hints
 #
