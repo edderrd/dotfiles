@@ -54,17 +54,9 @@ return packer.startup(function(use)
 
 	use("christoomey/vim-tmux-navigator") -- Tmux navigation <control>arrows
 
-	-- comments
-	use({ -- comment lines
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
-	})
-	use("JoosepAlviste/nvim-ts-context-commentstring")
-
 	use("kyazdani42/nvim-tree.lua") -- File explorer
 	use("nvim-telescope/telescope.nvim") -- very fast and intuitive file searcher
+	use("nvim-telescope/telescope-ui-select.nvim") -- ui that integrates with lsp
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- Very fast syntax hightlighter
 	use("kyazdani42/nvim-web-devicons") -- web dev icons
 	use("lewis6991/gitsigns.nvim") -- superfast git decorations
@@ -89,7 +81,7 @@ return packer.startup(function(use)
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use("moll/vim-bbye") -- delete buffers without deleting windows
 
-	use("akinsho/bufferline.nvim") -- tabline manager
+	use({ "akinsho/bufferline.nvim", tag = "*" }) -- tabline manager
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
@@ -97,21 +89,22 @@ return packer.startup(function(use)
 	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("jose-elias-alvarez/nvim-lsp-ts-utils") -- LSP typescript utilities
-	use({
-		"folke/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("todo-comments").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
-	})
+	use("folke/todo-comments.nvim")
 
 	use("ellisonleao/glow.nvim") -- markdown preview
 	use("tpope/vim-surround")
 	use("sindrets/diffview.nvim")
+
+	use("rcarriga/nvim-notify")
+
+	-- comments
+	use({ -- comment lines
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
