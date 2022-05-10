@@ -93,6 +93,7 @@ return packer.startup(function(use)
 	use("sindrets/diffview.nvim")
 
 	use("rcarriga/nvim-notify")
+	use("f-person/git-blame.nvim")
 
 	-- comments
 	use({ -- comment lines
