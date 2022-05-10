@@ -2,7 +2,7 @@ local colors = require("onenord.colors").load()
 
 local M = {
 	borders = true,
-	fade_nc = true,
+	fade_nc = false,
 	styles = {
 		diagnostics = "undercurl",
 		comments = "italic",

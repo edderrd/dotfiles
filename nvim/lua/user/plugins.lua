@@ -95,6 +95,8 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-notify")
 	use("f-person/git-blame.nvim")
 
+	use({ "mg979/vim-visual-multi", branch = "master" })
+
 	-- comments
 	use({ -- comment lines
 		"numToStr/Comment.nvim",
