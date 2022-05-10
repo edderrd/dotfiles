@@ -29,7 +29,7 @@ bufferline.setup({
 		max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
 		tab_size = 21,
 		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-		separator_style = "slant", -- | "slant" | "thick" | "thin" | { 'any', 'any' },
+		separator_style = "thin", -- | "slant" | "thick" | "thin" | { 'any', 'any' },
 		always_show_bufferline = false,
 
 		custom_filter11 = function(buf_number)
