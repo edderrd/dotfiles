@@ -59,7 +59,7 @@ default.icon_styles = {
 default.statusline_style = default.icon_styles["round"]
 
 -- show short statusline on small screens
-default.shortline = false
+default.shortline = true
 
 -- Initialize the components table
 default.components = {
@@ -68,6 +68,14 @@ default.components = {
 
 default.main_icon = {
 	provider = default.statusline_style.main_icon,
+
+	left_sep = {
+		str = " " .. default.statusline_style.left,
+		hl = {
+			fg = default.colors.nord_blue,
+			bg = "none",
+		},
+	},
 
 	hl = {
 		fg = default.colors.background,
@@ -88,31 +96,49 @@ default.file_name = {
 		local filename = vim.fn.expand("%:t")
 		local extension = vim.fn.expand("%:e")
 		local icon = require("nvim-web-devicons").get_icon(filename, extension)
-		local modified_str
 		if icon == nil then
 			icon = " "
 			return icon
 		end
 
-		if vim.bo.modified then
-			local modified_icon = ""
-			modified_str = modified_icon .. " "
-		else
-			modified_str = ""
-		end
-		return " " .. icon .. " " .. filename .. " " .. modified_str
+		return " " .. icon .. " " .. filename
 	end,
 	enabled = default.shortline or function(winid)
 		return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 70
 	end,
 	hl = {
 		fg = default.colors.white,
-		bg = default.colors.lightbg,
+		bg = default.colors.grey,
+	},
+	left_sep = {
+		str = " " .. default.statusline_style.left,
+		hl = {
+			fg = default.colors.grey,
+			bg = default.colors.lightbg,
+		},
+	},
+}
+
+default.file_modified = {
+	provider = function()
+		local modified_str
+
+		if vim.bo.modified then
+			modified_str = " "
+		else
+			modified_str = " "
+		end
+
+		return modified_str
+	end,
+	hl = {
+		fg = default.colors.pink,
+		bg = default.colors.grey,
 	},
 
 	right_sep = {
 		str = default.statusline_style.right,
-		hl = { fg = default.colors.lightbg, bg = default.colors.lightbg2 },
+		hl = { fg = default.colors.grey, bg = default.colors.lightbg2 },
 	},
 }
 
@@ -297,7 +323,7 @@ default.mode_colors = {
 default.mode_hl = function()
 	return {
 		fg = default.mode_colors[vim.fn.mode()][2],
-		bg = default.colors.one_bg,
+		bg = default.colors.one_bg2,
 	}
 end
 
@@ -315,7 +341,7 @@ default.empty_spaceColored = {
 	hl = function()
 		return {
 			fg = default.mode_colors[vim.fn.mode()][2],
-			bg = default.colors.lightbg,
+			bg = "none",
 		}
 	end,
 }
@@ -330,11 +356,18 @@ default.mode_icon = {
 	end,
 }
 
-default.empty_space2 = {
+default.mode_name = {
 	provider = function()
 		return " " .. default.mode_colors[vim.fn.mode()][1] .. " "
 	end,
 	hl = default.mode_hl,
+	left_sep = {
+		str = " " .. default.statusline_style.left,
+		hl = {
+			fg = default.colors.one_bg2,
+			bg = "none",
+		},
+	},
 }
 
 default.separator_empty = {
@@ -389,8 +422,16 @@ default.current_line = {
 	end,
 
 	hl = {
-		fg = default.colors.green,
-		bg = default.colors.one_bg,
+		fg = default.colors.one_bg,
+		bg = default.colors.green,
+	},
+
+	right_sep = {
+		str = default.statusline_style.right .. " ",
+		hl = {
+			fg = default.colors.green,
+			bg = "none",
+		},
 	},
 }
 
@@ -404,10 +445,12 @@ default.right = {}
 
 -- left
 add_table(default.left, default.main_icon)
-add_table(default.left, default.empty_space2)
+add_table(default.left, default.mode_name)
 add_table(default.left, default.mode_icon)
 add_table(default.left, default.empty_spaceColored)
 add_table(default.left, default.file_name)
+add_table(default.left, default.file_modified)
+
 add_table(default.left, default.dir_name)
 add_table(default.left, default.diagnostic.error)
 add_table(default.left, default.diagnostic.warning)
