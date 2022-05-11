@@ -5,7 +5,8 @@ if not status_ok then
 end
 
 vim.cmd([[
-nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files({ find_command = { "rg", "--files", "--hidden", "--follow" }, hidden = true, preview_title = false, prompt_title = false, results_title = false })<cr>
+" nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files({ find_command = { "rg", "--files", "--hidden", "--follow" }, hidden = true, preview_title = false, prompt_title = false, results_title = false })<cr>
+nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files({  hidden = true, preview_title = false, prompt_title = false, results_title = false })<cr>
 nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false, find_command = { "rg", "--files", "--hidden", "--follow" } })<cr>
 noremap <leader>b <cmd>lua require('telescope.builtin').buffers({ prompt_prefix = " ﬘ ", preview_title = false, prompt_title = false, results_title = false })<cr>
 nnoremap <leader>H <cmd>lua require('telescope.builtin').help_tags({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
