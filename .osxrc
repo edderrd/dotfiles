@@ -149,6 +149,10 @@ if (( $+commands[docker] )); then
     function dbash { docker run --rm -i -t -e TERM=xterm --entrypoint /bin/bash $1 }
 fi
 
+## kitty terminal aliases
+if [[ $TERM == "xterm-kitty" ]]; then
+  alias ssh="kitty +kitten ssh"
+fi
 
 ## using vim keybindings in terminal
 # bindkey -v
