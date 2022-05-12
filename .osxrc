@@ -154,6 +154,11 @@ if [[ $TERM == "xterm-kitty" ]]; then
   alias ssh="kitty +kitten ssh"
 fi
 
+## kitty terminal aliases
+if [[ $TERM == "wezterm" ]]; then
+  alias ssh="wezterm ssh"
+fi
+
 ## using vim keybindings in terminal
 # bindkey -v
 #zle-keymap-select () {
