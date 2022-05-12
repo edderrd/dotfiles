@@ -114,7 +114,7 @@ default.file_name = {
 		str = " " .. default.statusline_style.left,
 		hl = {
 			fg = default.colors.grey,
-			bg = default.colors.lightbg,
+			bg = "none",
 		},
 	},
 }

@@ -132,8 +132,6 @@ if not status_ok then
 	return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
 -- custom server definitions
 local servers = { "jsonls", "sumneko_lua" }
 -- setup servers using a file definition
@@ -143,5 +141,7 @@ for _, lsp in pairs(servers) do
 
 	require("lspconfig")[lsp].setup(opts)
 end
+
+M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 return M
