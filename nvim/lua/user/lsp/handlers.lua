@@ -132,15 +132,16 @@ if not status_ok then
 	return
 end
 
+-- TODO: this custom server configuration is handled in `lsp-installer.lua` that will be deprecated
 -- custom server definitions
-local servers = { "jsonls", "sumneko_lua" }
--- setup servers using a file definition
-for _, lsp in pairs(servers) do
-	local server_opts = require("user.lsp.settings." .. lsp)
-	local opts = vim.tbl_deep_extend("force", server_opts, { on_attach = M.on_attach, capabilities = M.capabilities })
-
-	require("lspconfig")[lsp].setup(opts)
-end
+-- local servers = { "jsonls", "sumneko_lua", "tsserver", "tailwindcss" }
+-- -- setup servers using a file definition
+-- for _, lsp in pairs(servers) do
+-- 	local server_opts = require("user.lsp.settings." .. lsp)
+-- 	local opts = vim.tbl_deep_extend("force", server_opts, { on_attach = M.on_attach, capabilities = M.capabilities })
+--
+-- 	require("lspconfig")[lsp].setup(opts)
+-- end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
