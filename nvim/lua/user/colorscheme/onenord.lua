@@ -12,6 +12,7 @@ local M = {
 	},
 	custom_highlights = {
 		TelescopeSelection = { bg = colors.gray, fg = colors.fg_light },
+		BufferLineFill = { bg = "#191C23" },
 	},
 	custom_colors = {
 		-- bg = "#282c34",

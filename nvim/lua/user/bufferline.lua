@@ -29,11 +29,22 @@ bufferline.setup({
 		max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
 		tab_size = 21,
 		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-		separator_style = "thin", -- | "slant" | "thick" | "thin" | { 'any', 'any' },
+		separator_style = "slant", -- | "slant" | "thick" | "thin" | { 'any', 'any' },
 		always_show_bufferline = false,
-
-		custom_filter11 = function(buf_number)
-			if vim.fn.bufname(buf_number) ~= "defx" then
+		show_close_icon = false,
+		show_tab_indicators = false,
+		enforce_regular_tabs = false,
+		diagnostics = "nvim_lsp",
+		diagnostics_indicator = function(_, _, diagnostics_dict, _)
+			local s = " "
+			for e, n in pairs(diagnostics_dict) do
+				local sym = e == "error" and " " or (e == "warning" and " " or "")
+				s = s .. n .. sym
+			end
+			return s
+		end,
+		custom_filter = function(buf_number)
+			if vim.fn.bufname(buf_number) ~= "NvimTree" then
 				return true
 			end
 			-- filter out filetypes you don't want to see
