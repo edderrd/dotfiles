@@ -7,7 +7,8 @@ end
 vim.cmd([[
 " nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files({ find_command = { "rg", "--files", "--hidden", "--follow" }, hidden = true, preview_title = false, prompt_title = false, results_title = false })<cr>
 nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files({  hidden = true, preview_title = false, prompt_title = false, results_title = false })<cr>
-nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false, find_command = { "rg", "--files", "--hidden", "--follow" } })<cr>
+nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false, find_command = { "rg", "--files", "--hidden", "--follow", "--smart-case" } })<cr>
+nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
 noremap <leader>b <cmd>lua require('telescope.builtin').buffers({ prompt_prefix = " ﬘ ", preview_title = false, prompt_title = false, results_title = false })<cr>
 nnoremap <leader>H <cmd>lua require('telescope.builtin').help_tags({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
 nnoremap <leader>l <cmd>lua require('telescope.builtin').git_status({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
@@ -44,7 +45,17 @@ telescope.setup({
 			hidden = true,
 		},
 		file_sorter = require("telescope.sorters").get_fuzzy_file,
-		file_ignore_patterns = { "node_modules", "^.git/*" },
+		-- file_ignore_patterns = { "node_modules", "^.git/*", "package-lock.json" },
+		file_ignore_patterns = {
+			"dist/.*",
+			"%.git/.*",
+			"%.vim/.*",
+			"node_modules/.*",
+			"%.idea/.*",
+			"%.vscode/.*",
+			"%.history/.*",
+			"%package-lock.json",
+		},
 		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 		path_display = { "truncate" },
 		-- winblend = 6,
