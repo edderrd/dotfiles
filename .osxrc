@@ -159,6 +159,9 @@ if [[ $TERM == "wezterm" ]]; then
   alias ssh="wezterm ssh"
 fi
 
+## raycast confetti
+alias confetti="open raycast://confetti"
+
 ## using vim keybindings in terminal
 # bindkey -v
 #zle-keymap-select () {
