@@ -16,13 +16,15 @@ nvim_tree.setup({
 	auto_reload_on_write = true,
 	disable_netrw = true,
 	hijack_netrw = true,
+	hijack_unnamed_buffer_when_opening = false,
 	open_on_setup = false,
+	open_on_setup_file = false,
+	open_on_tab = false,
 	ignore_ft_on_setup = {
 		"startify",
 		"dashboard",
 		"alpha",
 	},
-	open_on_tab = false,
 	hijack_cursor = false,
 	update_cwd = true,
 	diagnostics = {
@@ -55,10 +57,12 @@ nvim_tree.setup({
 		timeout = 500,
 	},
 	view = {
-		width = 31,
+		adaptive_size = false,
+		width = 40,
 		height = 30,
 		hide_root_folder = true,
 		side = "left",
+		signcolumn = "yes",
 		mappings = {
 			custom_only = false,
 			list = {
