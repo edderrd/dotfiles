@@ -151,7 +151,7 @@ fi
 
 ## kitty terminal aliases
 if [[ $TERM == "xterm-kitty" ]]; then
-  alias ssh="kitty +kitten ssh"
+  # alias ssh="kitty +kitten ssh"
 fi
 
 ## kitty terminal aliases
@@ -172,3 +172,6 @@ alias confetti="open raycast://confetti"
 #}
 #VI_MODE=true
 #bindkey -v
+
+
+alias ssh='export TERM="xterm-256color"; ssh'
