@@ -129,6 +129,10 @@ return packer.startup(function(use)
 		},
 	})
 
+	use({
+		"ruifm/gitlinker.nvim",
+	})
+
 	-- comments
 	use({ -- comment lines
 		"numToStr/Comment.nvim",
