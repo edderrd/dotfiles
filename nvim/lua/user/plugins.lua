@@ -119,6 +119,16 @@ return packer.startup(function(use)
 
 	use({ "mg979/vim-visual-multi", branch = "master" })
 
+	use({
+		"sudormrfbin/cheatsheet.nvim",
+
+		requires = {
+			{ "nvim-telescope/telescope.nvim" },
+			{ "nvim-lua/popup.nvim" },
+			{ "nvim-lua/plenary.nvim" },
+		},
+	})
+
 	-- comments
 	use({ -- comment lines
 		"numToStr/Comment.nvim",
