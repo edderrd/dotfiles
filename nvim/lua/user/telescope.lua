@@ -13,7 +13,7 @@ noremap <leader>b <cmd>lua require('telescope.builtin').buffers({ prompt_prefix 
 nnoremap <leader>H <cmd>lua require('telescope.builtin').help_tags({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
 nnoremap <leader>l <cmd>lua require('telescope.builtin').git_status({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
 nnoremap <leader>p <cmd>lua require('telescope.builtin').commands({ prompt_prefix = " גּ ", preview_title = false, prompt_title = false, results_title = false })<cr>
-nnoremap <leader>e <cmd>lua require('telescope.builtin').diagnostics({ prompt_prefix = " גּ ", preview_title = false, prompt_title = false, results_title = false })<cr>
+" nnoremap <leader>e <cmd>lua require('telescope.builtin').diagnostics({ prompt_prefix = " גּ ", preview_title = false, prompt_title = false, results_title = false })<cr>
 nnoremap <leader>n <cmd>lua require('telescope').extensions.notify.notify({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
 ]])
 

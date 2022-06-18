@@ -42,7 +42,7 @@ keymap("n", "<leader>cp", ':let @+ = expand("%")<cr>', term_opts)
 keymap("n", "<leader>ca", ":% y+<cr>", term_opts)
 
 -- tab management
-keymap("n", "<leader>t", ":tabe .<cr>", term_opts) -- New tab
+-- keymap("n", "<leader>t", ":tabe .<cr>", term_opts) -- New tab
 keymap("n", "<leader>[", ":tabp <cr>", term_opts) -- Previous tab
 keymap("n", "<leader>]", ":tabn <cr>", term_opts) -- Next tab
 keymap("n", "<leader>l", ":tabp <cr>", term_opts) -- Next tab keymap("n", "<leader>h", ":tabp <cr>", opts)    -- Previous tab

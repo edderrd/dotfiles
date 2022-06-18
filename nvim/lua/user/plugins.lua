@@ -117,11 +117,12 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-notify")
 	use("f-person/git-blame.nvim")
 
+	-- multi-cursor editor like sublime-text
 	use({ "mg979/vim-visual-multi", branch = "master" })
 
+	-- allow to find keyboard mappings
 	use({
 		"sudormrfbin/cheatsheet.nvim",
-
 		requires = {
 			{ "nvim-telescope/telescope.nvim" },
 			{ "nvim-lua/popup.nvim" },
@@ -129,8 +130,13 @@ return packer.startup(function(use)
 		},
 	})
 
+	-- allow to generate a repo link of currrent line(s) selected
+	use("ruifm/gitlinker.nvim")
+
+	-- show a list of lsp errors
 	use({
-		"ruifm/gitlinker.nvim",
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
 	})
 
 	-- comments
