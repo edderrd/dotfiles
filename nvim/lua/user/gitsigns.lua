@@ -18,12 +18,12 @@ map("n", "<leader>hN", "&diff ? '<leader>hN' : '<cmd>Gitsigns prev_hunk<CR>'", {
 -- map("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<CR>")
 -- map("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>")
 -- map("n", "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>")
-map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>")
-map("n", "<leader>gB", '<cmd>lua require"gitsigns".blame_line{full=true}<CR>')
-map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
-map("n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>")
-map("n", "<leader>gD", '<cmd>lua require"gitsigns".diffthis("~")<CR>')
-map("n", "<leader>gx", "<cmd>Gitsigns toggle_deleted<CR>")
+map("n", "<leader>gchangeSubscriptionAndProductsp", "<cmd>Gitsigns preview_hunk<CR>")
+map("n", "<leader>hB", '<cmd>lua require"gitsigns".blame_line{full=true}<CR>')
+map("n", "<leader>hb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
+map("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>")
+map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>')
+map("n", "<leader>hx", "<cmd>Gitsigns toggle_deleted<CR>")
 
 -- Text object
 map("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
