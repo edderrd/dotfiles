@@ -86,7 +86,7 @@ default.main_icon = {
 		str = default.statusline_style.right,
 		hl = {
 			fg = default.colors.nord_blue,
-			bg = default.colors.lightbg,
+			bg = "none",
 		},
 	},
 }

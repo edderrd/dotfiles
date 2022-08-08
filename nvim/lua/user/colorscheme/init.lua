@@ -1,4 +1,5 @@
-local colorscheme = "onenord"
+-- local colorscheme = "onenord"
+local colorscheme = "onedark"
 
 -- import lua module for setup
 local status_ok_scheme, scheme = pcall(require, colorscheme)

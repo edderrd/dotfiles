@@ -5,7 +5,7 @@
 -- ]])
 
 local M = {
-	style = "dark",
+	style = "warm",
 	code_style = {
 		comments = "italic",
 		keywords = "italic",
@@ -15,6 +15,9 @@ local M = {
 	},
 	diagnostic = {
 		undercurl = true,
+	},
+	colors = {
+		bg0 = "#1D1F21",
 	},
 }
 
