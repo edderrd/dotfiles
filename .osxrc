@@ -129,6 +129,13 @@ if (( $+commands[exa] )); then
     alias tree='exa --tree --icons'
 fi
 
+###############
+#### PyEnv ####
+###############
+if (( $+commands[pyenv] )); then
+  export PATH=$(pyenv root)/shims:$PATH
+fi
+
 ## avr-gcc path used by qmk firmware
 export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
 
