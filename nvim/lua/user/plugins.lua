@@ -89,7 +89,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-cmdline") -- cmdline completions
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
 	use("hrsh7th/cmp-nvim-lsp")
-	-- use("jose-elias-alvarez/typescript.nvim") -- extra typescript features
+	use("jose-elias-alvarez/typescript.nvim") -- extra typescript features
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
@@ -115,7 +115,7 @@ return packer.startup(function(use)
 	use("sindrets/diffview.nvim")
 
 	-- To intrusive for my liking
-	-- use("rcarriga/nvim-notify")
+	use("rcarriga/nvim-notify")
 	use("f-person/git-blame.nvim")
 
 	-- multi-cursor editor like sublime-text
