@@ -1,9 +1,3 @@
--- vim.cmd([[
---   hi Pmenu ctermbg=NONE guibg=NONE
---   hi Pmenu ctermbg=NONE guibg=NONE
---   hi NormalFloat ctermbg=NONE guibg=NONE
--- ]])
-
 local M = {
 	style = "warm",
 	code_style = {
@@ -18,6 +12,10 @@ local M = {
 	},
 	colors = {
 		bg0 = "#1D1F21",
+	},
+	highlights = {
+		NormalFloat = { bg = "NONE" },
+		FloatBorder = { bg = "NONE" },
 	},
 }
 

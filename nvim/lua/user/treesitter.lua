@@ -17,6 +17,9 @@ configs.setup({
 	autopairs = {
 		enable = true,
 	},
+	autotag = {
+		enable = true,
+	},
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		disable = { "" }, -- list of language that will be disabled
@@ -48,3 +51,4 @@ parser_config.twig = {
 	},
 	filetype = "twig",
 }
+parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }

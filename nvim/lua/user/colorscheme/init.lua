@@ -1,6 +1,15 @@
 -- local colorscheme = "onenord"
 local colorscheme = "onedark"
 
+-- disable background color in float windows
+vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=NONE]])
+vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guibg=NONE]])
+vim.cmd([[autocmd! ColorScheme * highlight Pmenu guibg=NONE]])
+
+vim.cmd([[highlight NormalFloat guibg=NONE]])
+vim.cmd([[highlight FloatBorder guibg=NONE]])
+vim.cmd([[highlight Pmenu guibg=NONE]])
+
 -- import lua module for setup
 local status_ok_scheme, scheme = pcall(require, colorscheme)
 if not status_ok_scheme then

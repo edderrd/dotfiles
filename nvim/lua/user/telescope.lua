@@ -4,20 +4,64 @@ if not status_ok then
 	return
 end
 
-vim.cmd([[
-" nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files({ find_command = { "rg", "--files", "--hidden", "--follow" }, hidden = true, preview_title = false, prompt_title = false, results_title = false })<cr>
-nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files({  hidden = true, preview_title = false, prompt_title = false, results_title = false })<cr>
-nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false, find_command = { "rg", "--files", "--hidden", "--follow", "--smart-case" } })<cr>
-nnoremap <leader>s <cmd>lua require('telescope.builtin').live_grep({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
-noremap <leader>b <cmd>lua require('telescope.builtin').buffers({ prompt_prefix = " ﬘ ", preview_title = false, prompt_title = false, results_title = false })<cr>
-nnoremap <leader>H <cmd>lua require('telescope.builtin').help_tags({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
-nnoremap <leader>l <cmd>lua require('telescope.builtin').git_status({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
-nnoremap <leader>p <cmd>lua require('telescope.builtin').commands({ prompt_prefix = " גּ ", preview_title = false, prompt_title = false, results_title = false })<cr>
-" nnoremap <leader>e <cmd>lua require('telescope.builtin').diagnostics({ prompt_prefix = " גּ ", preview_title = false, prompt_title = false, results_title = false })<cr>
-nnoremap <leader>n <cmd>lua require('telescope').extensions.notify.notify({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })<cr>
-]])
+local function telescope_buffer_dir()
+	return vim.fn.expand("%:p:h")
+end
 
+local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
+local fb_actions = require("telescope").extensions.file_browser.actions
+
+local _find_files = function()
+	builtin.find_files({ hidden = true, preview_title = false, prompt_title = false, results_title = false })
+end
+vim.keymap.set("n", "<leader>f", _find_files)
+vim.keymap.set("n", ";f", _find_files)
+
+local _search = function()
+	builtin.live_grep({
+		prompt_prefix = "  ",
+		preview_title = false,
+		prompt_title = false,
+		results_title = false,
+		find_command = { "g", "--files", "--hidden", "--follow", "--smart-case" },
+	})
+end
+vim.keymap.set("n", "<leader>s", _search)
+vim.keymap.set("n", ";s", _search)
+
+vim.keymap.set("n", ";b", function()
+	builtin.buffers({ prompt_prefix = " ﬘ ", preview_title = false, prompt_title = false, results_title = false })
+end)
+vim.keymap.set("n", ";h", function()
+	builtin.help_tags({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })
+end)
+
+local _git = function()
+	builtin.git_status({ prompt_prefix = "  ", preview_title = false, prompt_title = false, results_title = false })
+end
+vim.keymap.set("n", ";g", _git)
+vim.keymap.set("n", "<leader>l", _git)
+
+local _commands = function()
+	builtin.commands({ prompt_prefix = " גּ ", preview_title = false, prompt_title = false, results_title = false })
+end
+vim.keymap.set("n", ";c", _commands)
+vim.keymap.set("n", "<leader>p", _commands)
+vim.keymap.set("n", ";n", function()
+	builtin.extensions.notify.notify({
+		prompt_prefix = "  ",
+		preview_title = false,
+		prompt_title = false,
+		results_title = false,
+	})
+end)
+vim.keymap.set("n", ";d", function()
+	builtin.diagnostics({ prompt_prefix = " גּ ", preview_title = false, prompt_title = false, results_title = false })
+end)
+vim.keymap.set("n", ";;", function()
+	builtin.resume()
+end)
 
 telescope.setup({
 	defaults = {
@@ -140,7 +184,38 @@ telescope.setup({
 				-- options here
 			}),
 		},
+		file_browser = {
+			path = "%:p:h",
+			cwd = telescope_buffer_dir(),
+			theme = "dropdown",
+			hijack_netrw = true, -- disables netrw and use telescope-file-browser in its place
+			respect_gitignore = false,
+			hidden = true,
+			grouped = true,
+			previewer = false,
+			display_stat = false,
+			initial_mode = "normal",
+			layout_config = { height = 40 },
+			prompt_prefix = "   ",
+			mappings = {
+				-- your custom insert mode mappings
+				["i"] = {
+					["<C-w>"] = function()
+						vim.cmd("normal vbd")
+					end,
+				},
+				["n"] = {
+					-- your custom normal mode mappings
+					["N"] = fb_actions.create,
+					["h"] = fb_actions.goto_parent_dir,
+					["/"] = function()
+						vim.cmd("startinsert")
+					end,
+				},
+			},
+		},
 	},
 })
 
-telescope.load_extension("ui-select")
+-- telescope.load_extension("file_browser")
+-- vim.api.nvim_set_keymap("n", "sf", ":Telescope file_browser<cr>", { silent = true, noremap = true })

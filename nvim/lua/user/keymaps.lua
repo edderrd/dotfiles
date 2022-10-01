@@ -45,7 +45,9 @@ keymap("n", "<leader>ca", ":% y+<cr>", term_opts)
 -- keymap("n", "<leader>t", ":tabe .<cr>", term_opts) -- New tab
 keymap("n", "<leader>[", ":tabp <cr>", term_opts) -- Previous tab
 keymap("n", "<leader>]", ":tabn <cr>", term_opts) -- Next tab
-keymap("n", "<leader>l", ":tabp <cr>", term_opts) -- Next tab keymap("n", "<leader>h", ":tabp <cr>", opts)    -- Previous tab
+--[[ keymap("n", "<leader>l", ":tabp <cr>", term_opts) -- Next tab keymap("n", "<leader>h", ":tabp <cr>", opts)    -- Previous tab ]]
+keymap("n", "te", ":tabedit<cr>", term_opts)
+
 -- split management
 keymap("n", "<leader>v", "<C-W>v", opts) -- create vertical split
 keymap("n", "<leader>h", "<C-W>s", opts) -- create horizontal split
@@ -67,6 +69,13 @@ keymap("n", "<expr>k", "v:count ? 'k' : 'gk'", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "J", "mzJ`z", opts)
+
+-- do not yank with x
+keymap("n", "x", '"_x', opts)
+
+-- increment/decrement
+keymap("n", "+", "<C-a>", opts)
+keymap("n", "-", "<C-x>", opts)
 
 ---- Insert ----
 

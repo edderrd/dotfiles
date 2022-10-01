@@ -28,6 +28,7 @@ local options = {
 	splitright = true, -- force all vertical splits to go to the right of current window
 	swapfile = false, -- creates a swapfile
 	cursorline = true, -- show current cursor line hightlighted
+	cursorlineopt = "number", -- only hightlight cursor line number
 	-- termguicolors = true,                    -- set term gui colors (most terminals support this)
 	timeoutlen = 1000, -- time to wait for a mapped sequence to complete (in milliseconds)
 	undofile = true, -- enable persistent undo

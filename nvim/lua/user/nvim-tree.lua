@@ -19,14 +19,14 @@ nvim_tree.setup({
 	hijack_unnamed_buffer_when_opening = false,
 	open_on_setup = false,
 	open_on_setup_file = false,
-	open_on_tab = false,
+	open_on_tab = true,
 	ignore_ft_on_setup = {
 		"startify",
 		"dashboard",
 		"alpha",
 	},
 	hijack_cursor = false,
-	update_cwd = true,
+	update_cwd = false,
 	diagnostics = {
 		enable = true,
 		icons = {
@@ -57,9 +57,7 @@ nvim_tree.setup({
 		timeout = 500,
 	},
 	view = {
-		adaptive_size = false,
-		width = 40,
-		height = 30,
+		adaptive_size = true,
 		hide_root_folder = true,
 		side = "left",
 		signcolumn = "yes",

@@ -76,11 +76,13 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-tree.lua") -- File explorer
 	use("nvim-telescope/telescope.nvim") -- very fast and intuitive file searcher
 	use("nvim-telescope/telescope-ui-select.nvim") -- ui that integrates with lsp
+	use("nvim-telescope/telescope-file-browser.nvim")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- Very fast syntax hightlighter
 	use("kyazdani42/nvim-web-devicons") -- web dev icons
 	use("lewis6991/gitsigns.nvim") -- superfast git decorations
 	use("feline-nvim/feline.nvim") -- Lightweight and fast status line
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
+	use("windwp/nvim-ts-autotag")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -100,14 +102,21 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim") -- adds indentiation guides to all lines
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 
-	use("moll/vim-bbye") -- delete buffers without deleting windows
+	--[[ use("moll/vim-bbye") -- delete buffers without deleting windows ]]
 	use({ "akinsho/bufferline.nvim", tag = "*" }) -- tabline manager
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
+	--[[ use({ "williamboman/mason.nvim" }) ]]
+	--[[ use({ "williamboman/mason-lspconfig.nvim" }) ]]
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+	})
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+	use("MunifTanjim/prettier.nvim")
 
 	use("folke/todo-comments.nvim")
 	use("ellisonleao/glow.nvim") -- markdown preview
@@ -115,7 +124,7 @@ return packer.startup(function(use)
 	use("sindrets/diffview.nvim")
 
 	-- To intrusive for my liking
-	use("rcarriga/nvim-notify")
+	--[[ use("rcarriga/nvim-notify") ]]
 	use("f-person/git-blame.nvim")
 
 	-- multi-cursor editor like sublime-text
@@ -143,9 +152,6 @@ return packer.startup(function(use)
 	-- comments
 	use({ -- comment lines
 		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
 	})
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 

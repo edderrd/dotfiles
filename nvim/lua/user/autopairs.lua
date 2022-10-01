@@ -5,12 +5,14 @@ end
 
 npairs.setup({
 	check_ts = true,
+	disable_in_macro = false,
+	disable_in_visualblock = false,
 	ts_config = {
 		lua = { "string", "source" },
 		javascript = { "string", "template_string" },
 		java = false,
 	},
-	disable_filetype = { "TelescopePrompt", "spectre_panel" },
+	disable_filetype = { "TelescopePrompt", "spectre_panel", "vim" },
 	fast_wrap = {
 		map = "<M-e>",
 		chars = { "{", "[", "(", '"', "'" },

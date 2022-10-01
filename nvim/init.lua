@@ -1,3 +1,7 @@
+-- vim.cmd([[highlight NormalFloat guibg=NONE]])
+-- vim.cmd([[highlight FloatBorder guibg=NONE]])
+-- vim.cmd([[highlight Pmenu guibg=NONE]])
+
 require("user.impatient")
 require("user.options")
 require("user.keymaps")

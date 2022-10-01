@@ -1,5 +1,9 @@
 local colors = require("onenord.colors").load()
 
+vim.cmd([[highlight NormalFloat guibg=NONE]])
+vim.cmd([[highlight FloatBorder guibg=NONE]])
+vim.cmd([[highlight Pmenu guibg=NONE]])
+
 local M = {
 	borders = true,
 	fade_nc = false,

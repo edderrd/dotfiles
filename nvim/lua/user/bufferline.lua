@@ -25,6 +25,7 @@ map("n", "<leader>9", ":BufferLineGoToBuffer 9<CR>", opts)
 
 bufferline.setup({
 	options = {
+		--[[ mode = "tabs", ]]
 		max_name_length = 30,
 		max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
 		tab_size = 21,

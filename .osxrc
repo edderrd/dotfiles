@@ -122,10 +122,10 @@ fi
 # exa
 #####
 if (( $+commands[exa] )); then
-    alias l='exa -lh --icons'
+    alias l='exa -l -g --icons'
     alias ls='exa --icons'
-    alias ll='exa -lh --icons'
-    alias la='exa -lah --icons'
+    alias ll='l'
+    alias la='l -a'
     alias tree='exa --tree --icons'
 fi
 
@@ -183,3 +183,9 @@ alias confetti="open raycast://confetti"
 
 alias ssh='export TERM="xterm-256color"; ssh -E /dev/null'
 alias sshp="ssh -o ProxyCommand='nc -x 127.0.0.1:9999 %h %p' -E /dev/null"
+
+## volta
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
+
+[ -s "$HOME/.rover/env" ] && . "$HOME/.rover/env"
