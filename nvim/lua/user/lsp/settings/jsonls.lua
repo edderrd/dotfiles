@@ -166,11 +166,11 @@ local schemas = {
 		fileMatch = { "resume.json" },
 		url = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
 	},
-  {
-    description = "PHP Composer Configuration File",
-    fileMatch = { "composer.json" },
-    url = "https://getcomposer.org/schema.json",
-  }
+	{
+		description = "PHP Composer Configuration File",
+		fileMatch = { "composer.json" },
+		url = "https://getcomposer.org/schema.json",
+	},
 }
 
 local function extend(tab1, tab2)
@@ -183,22 +183,22 @@ end
 local extended_schemas = extend(schemas, default_schemas)
 
 local opts = {
-  -- HACK: this is prune to change
-  cmd = { "vscode-json-languageserver", "--stdio" },
+	-- HACK: this is prune to change
+	--[[ cmd = { "vscode-json-languageserver", "--stdio" }, ]]
 	settings = {
 		json = {
 			schemas = extended_schemas,
 		},
 	},
-	setup = {
-		commands = {
-			Format = {
-				function()
-					vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
-				end,
-			},
-		},
-	},
+	--[[ setup = { ]]
+	--[[ 	commands = { ]]
+	--[[ 		Format = { ]]
+	--[[ 			function() ]]
+	--[[ 				vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 }) ]]
+	--[[ 			end, ]]
+	--[[ 		}, ]]
+	--[[ 	}, ]]
+	--[[ }, ]]
 }
 
 return opts

@@ -1,5 +1,8 @@
+local colors = require("user.themes.onedark")
+
 local M = {
 	style = "warm",
+	transparent = false,
 	code_style = {
 		comments = "italic",
 		keywords = "italic",
@@ -9,13 +12,17 @@ local M = {
 	},
 	diagnostic = {
 		undercurl = true,
+		darker = true,
 	},
 	colors = {
 		bg0 = "#1D1F21",
 	},
 	highlights = {
 		NormalFloat = { bg = "NONE" },
-		FloatBorder = { bg = "NONE" },
+		FloatBorder = { bg = "NONE", fg = "$grey" },
+		TabLineSel = {
+			bg = colors.blue,
+		},
 	},
 }
 

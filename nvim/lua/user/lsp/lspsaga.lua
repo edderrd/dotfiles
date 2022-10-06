@@ -1,23 +1,26 @@
 local status_ok, saga = pcall(require, "lspsaga")
 if not status_ok then
-	vim.notify("LSP Saga")
-	return
+  vim.notify("LSP Saga")
+  return
 end
 saga.init_lsp_saga({
-	server_filetype_map = {
-		typescript = "typescript",
-	},
-	border_style = "rounded",
-	code_action_num_shortcut = true,
-	code_action_lightbulb = {
-		enable = false,
-		enable_in_insert = false,
-		cache_code_action = true,
-		sign = true,
-		update_time = 150,
-		sign_priority = 20,
-		virtual_text = false,
-	},
+  server_filetype_map = {
+    typescript = "typescript",
+  },
+  border_style = "rounded",
+  code_action_num_shortcut = true,
+  code_action_lightbulb = {
+    enable = false,
+    enable_in_insert = false,
+    cache_code_action = true,
+    sign = true,
+    update_time = 150,
+    sign_priority = 20,
+    virtual_text = false,
+  },
+  symbol_in_winbar = {
+    enable = false,
+  },
 })
 
 local opts = { noremap = true, silent = true }
@@ -33,18 +36,3 @@ vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
 vim.keymap.set("n", "ga", "<Cmd>Lspsaga code_action<CR>", opts)
 vim.keymap.set("v", "ga", "<Cmd>Lspsaga range_code_action<CR>", opts)
 vim.keymap.set("n", ";o", "<Cmd>LSoutlineToggle<CR>", opts)
-
--- scroll in hover doc or  definition preview window
-local status_action, action = pcall(require, "lspsaga.action")
-if not status_action then
-	vim.notify("LSP Saga Action not found")
-	return
-end
-
-vim.keymap.set("n", "<C-f>", function()
-	action.smart_scroll_with_saga(1)
-end, { silent = true })
--- scroll in hover doc or  definition preview window
-vim.keymap.set("n", "<C-b>", function()
-	action.smart_scroll_with_saga(-1)
-end, { silent = true })

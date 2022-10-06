@@ -45,8 +45,7 @@ M.setup = function()
 end
 
 local function lsp_highlight_document(client)
-	-- Set autocommands conditional on server_capabilities
-	if client.resolved_capabilities.document_highlight then
+	if client.server_capabilities.documentHighlightProvider then
 		vim.api.nvim_exec(
 			[[
       augroup lsp_document_highlight
@@ -63,19 +62,22 @@ end
 M.on_attach = function(client)
 	if client.name == "tsserver" then
 		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 	end
 
 	if client.name == "intelephense" then
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 	end
 
 	if client.name == "sumneko_lua" then
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
+		client.server_capabilities.document_formatting = false
+		client.server_capabilities.document_range_formatting = false
+
+		client.server_capabilities.documentFormatProvider = false
 	end
 
 	if client.name == "volar" then
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 	end
 
 	lsp_highlight_document(client)
@@ -88,16 +90,40 @@ if not status_ok then
 	return
 end
 
--- TODO: this custom server configuration is handled in `lsp-installer.lua` that will be deprecated
--- custom server definitions
--- local servers = { "jsonls", "sumneko_lua", "tsserver", "tailwindcss" }
--- -- setup servers using a file definition
--- for _, lsp in pairs(servers) do
--- 	local server_opts = require("user.lsp.settings." .. lsp)
--- 	local opts = vim.tbl_deep_extend("force", server_opts, { on_attach = M.on_attach, capabilities = M.capabilities })
---
--- 	require("lspconfig")[lsp].setup(opts)
--- end
+local lspconfig_status, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status then
+	print("LSP Config not loaded")
+	return
+end
+
+local opts = {
+	on_attach = M.on_attach,
+	capabilities = capabilities,
+}
+
+local scan = require("plenary.scandir")
+local serverSettings = {}
+
+for _, value in ipairs(scan.scan_dir(vim.loop.os_homedir() .. "/.config/nvim/lua/user/lsp/settings")) do
+	local filePath = vim.split(value, "/")
+	local serverName = string.gsub(filePath[#filePath], "%.lua", "")
+	serverSettings[serverName] = serverName
+end
+
+local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status then
+	print("Mason LSP Config not loaded")
+else
+	mason_lspconfig.setup_handlers({
+		function(server_name)
+			if serverSettings[server_name] then
+				local settingsOpts = require("user.lsp.settings." .. serverSettings[server_name])
+				opts = vim.tbl_deep_extend("force", settingsOpts, opts)
+			end
+			lspconfig[server_name].setup(opts)
+		end,
+	})
+end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
