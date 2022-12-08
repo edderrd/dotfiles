@@ -28,3 +28,12 @@ ln -s "$DOTFILES_FOLDER/alacritty" "$HOME/.config/alacritty"
 ln -s "$DOTFILES_FOLDER/wezterm" "$HOME/.config/wezterm"
 ln -s "$DOTFILES_FOLDER/.gitconfig" "$HOME/.gitconfig"
 ln -s "$DOTFILES_FOLDER/lazygit" "$HOME/Library/Application Support/lazygit"
+ln -s "$DOTFILES_FOLDER/zsh" "$HOME/.zsh"
+ln -s "$DOTFILES_FOLDER/.zshrc" "$HOME/.zshrc"
+ln -s "$DOTFILES_FOLDER/starship.toml" "$HOME/.config/startship.toml"
+
+# update latest zsh submodules
+cd ~/.zsh && git submodule update --init --remote
+
+# to update submodules
+# git submodule update --recursive --remote

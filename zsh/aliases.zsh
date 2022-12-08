@@ -1,20 +1,31 @@
-# reload zsh
-alias reload!='source ~/.zshrc'
+# Alias
+# ---
+#
+# alias k="kubectl"
+# alias h="helm"
+# alias tf="terraform"
+# alias a="ansible"
+# alias ap="ansible-playbook"
+# alias dt="datree"
+
+# mac OS shortcuts
+alias code="open -a 'Visual Studio Code'"
+
+# ALIAS COMMANDS
+alias ls="exa --icons --group-directories-first"
+alias l="exa --icons --group-directories-first"
+alias ll="exa --icons --group-directories-first -l"
+alias la="exa --icons --group-directories-first -l -a"
+alias g="goto"
+alias grep='grep --color'
 
 alias crontab="VIM_CRONTAB=true crontab"
-
-## default editor
-export EDITOR="nvim"
-export VISUAL="nvim"
 
 # neovim
 alias vim="nvim"
 alias vi="nvim"
 
-alias v="nvim"
-
 # git
-
 alias g="git"
 
 ##########
@@ -39,3 +50,4 @@ fi
 # alias man=tldr
 
 alias art="php artisan"
+
