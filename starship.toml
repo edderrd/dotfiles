@@ -60,7 +60,7 @@ style = "bold green"
 
 [git_status]
 format = '[$all_status$ahead_behind]($style) '
-style = "bold green"
+style = "green"
 conflicted = "🏳"
 up_to_date = " "
 untracked = " "
