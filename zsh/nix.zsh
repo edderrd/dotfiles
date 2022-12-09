@@ -72,10 +72,10 @@ fi
 # exa #
 #######
 if (( $+commands[exa] )); then
-    alias l='exa -lh --icons'
-    alias ls='exa --icons'
-    alias ll='exa -lh --icons'
-    alias la='exa -lah --icons'
+    alias l='exa -lh --icons --group-directories-first'
+    alias ls='exa --icons --group-directories-first'
+    alias ll='exa -lh --icons --group-directories-first'
+    alias la='exa -lah --icons --group-directories-first'
 fi
 
 # GO LANG PATH
