@@ -16,6 +16,9 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 ## avr-gcc path used by qmk firmware
 export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
 
+## mysql-client
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
 ## kitty terminal aliases
 if [[ $TERM == "xterm-kitty" ]]; then
   # alias ssh="kitty +kitten ssh"
