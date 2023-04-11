@@ -6,11 +6,12 @@
 [[ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -f ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh ]] && source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-# All OS loading
-[[ -f ~/.zsh/nix.zsh ]] && source ~/.zsh/nix.zsh
 # OS Specific Files
 [[ "$machine" = "Mac" ]] && source ~/.zsh/osx.zsh
 [[ "$machine" = "Linux" ]] && source ~/.zsh/linux.zsh
+
+# All OS loading
+[[ -f ~/.zsh/nix.zsh ]] && source ~/.zsh/nix.zsh
 
 # Load Direnv
 eval "$(direnv hook zsh)"

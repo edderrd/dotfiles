@@ -32,15 +32,6 @@ if (( $+commands[pyenv] )); then
   eval "$(pyenv init -)"
 fi
 
-
-# GO LANG PATH
-if (( $+commands[go] )); then
-    # mkdir -p $HOME/.go/{bin,src,pkg}
-    export GOPATH="$HOME/.go"
-    export GOROOT="$(brew --prefix golang)/libexec"
-    export PATH=$PATH:$GOPATH/bin
-fi
-
 # Rust (cargo)
 if (( $+commands[cargo] )); then
   export PATH=$PATH:~/.cargo/bin
@@ -78,12 +69,20 @@ if (( $+commands[exa] )); then
     alias ls='exa --icons --group-directories-first'
     alias ll='exa -lh --icons --group-directories-first'
     alias la='exa -lah --icons --group-directories-first'
+else
+  alias l='ls -ls'
+  alias ls='ls -h'
+  alias ll='ls -lsh'
+  alias la='ls -lsha'
 fi
 
 # GO LANG PATH
 if (( $+commands[go] )); then
+    # mkdir -p $HOME/.go/{bin,src,pkg}
     export GOPATH="$HOME/.go"
     export PATH=$PATH:$GOPATH/bin
+    export GOPATH="$HOME/.go"
+    export GOROOT="$(brew --prefix golang)/libexec"
 fi
 
 [ -s "$HOME/.rover/env" ] && . "$HOME/.rover/env"
