@@ -1,5 +1,4 @@
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
 
 -- Shorten function name
@@ -60,6 +59,8 @@ keymap("n", "<S-Left>", ":vertical resize +10", opts) -- Increase resize left
 keymap("n", "<S-Right>", ":vertical resize -10", opts) -- Decrease resize
 keymap("n", "<S-Up>", ":resize +10", opts) -- Increase resize left
 keymap("n", "<S-Down>", ":resize -10", opts) -- Decrease resize
+keymap("n", "<C-d>", "<C-d>zz", opts) -- Page navigation with always center
+keymap("n", "<C-u>", "<C-u>zz", opts) -- Page navigation with always center
 
 -- movement keys work on wrapped lines
 keymap("n", "<expr>j", "v:count ? 'j' : 'gj'", opts)
@@ -77,6 +78,9 @@ keymap("n", "x", '"_x', opts)
 keymap("n", "+", "<C-a>", opts)
 keymap("n", "-", "<C-x>", opts)
 
+-- never enter into invisible mode
+keymap("n", "Q", "<nop", opts)
+
 ---- Insert ----
 
 -- undo break points
@@ -92,4 +96,4 @@ keymap("v", "J", ":m '>+1'<cr>gv=gv", opts)
 keymap("v", "K", ":m '<-2'<cr>gv=gv", opts)
 
 -- avoid replace word when pasting
---keymap("v", "p", "_dP", opts)
+keymap("x", "p", '"_dP', opts)

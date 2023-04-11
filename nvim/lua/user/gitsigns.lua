@@ -18,7 +18,7 @@ map("n", "<leader>hN", "&diff ? '<leader>hN' : '<cmd>Gitsigns prev_hunk<CR>'", {
 -- map("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<CR>")
 -- map("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>")
 -- map("n", "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>")
-map("n", "<leader>gchangeSubscriptionAndProductsp", "<cmd>Gitsigns preview_hunk<CR>")
+map("n", "<leader>hp", "<cmd>Gitsigns preview_hunk<CR>")
 map("n", "<leader>hB", '<cmd>lua require"gitsigns".blame_line{full=true}<CR>')
 map("n", "<leader>hb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
 map("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>")
@@ -35,6 +35,7 @@ gitsigns.setup({
 		change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
 		delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
 		topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+    untracked    = { text = '┆', hl = "DiffIndexLine" },
 		changedelete = {
 			hl = "GitSignsChange",
 			text = "▎",

@@ -2,26 +2,29 @@ env:
   # TERM_PROGRAM: alacritty
   TERM: xterm-256color
 window:
-  # decorations: none
+  # decorations: transparent
   dimensions:
     columns: 140
     lines: 40
-  padding:
-    x: 2
-    y: 0
-  dynamic_title: true
+  # padding:
+    # x: 2
+    # bottom: 32
+  # dynamic_title: true
   dynamic_padding: true
 scrolling:
   history: 10000
   multiplier: 3
 font:
   normal:
-    family: ComicCodeLigatures Nerd Font
+    # family: ComicCodeLigatures Nerd Font Mono
+    # family: ComicCodeLigatures NFM
+    family: ComicCodeLigatures NF
+    # family: JetBrainsMono Nerd Font
     # family: Hack Nerd Font Mono
     # The `style` can be specified to pick a specific face.
     # style: Regular
   # Point size
-  size: 14
+  size: 13
   offset:
     x: 0
     y: 0

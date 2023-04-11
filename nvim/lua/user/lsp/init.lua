@@ -1,12 +1,15 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-  vim.notify("LSP Config not loaded")
-  return
-end
+-- LSP configuration
 
---[[ require("user.lsp.lsp-installer") ]]
-require("user.lsp.mason")
-require("user.lsp.handlers").setup()
-require("user.lsp.null-ls")
-require("user.lsp.typescript")
-require("user.lsp.lspsaga")
+-- install servers and tools
+require('user.lsp.mason')
+local setups = require("user.lsp.setups")
+
+local lspconfig = require('lspconfig')
+require('mason-lspconfig').setup_handlers({
+	function (server_name)
+		lspconfig[server_name].setup(setups[server_name]())
+	end
+})
+
+require('user.lsp.null-ls')
+require('user.lsp.lspsaga')

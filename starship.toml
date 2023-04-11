@@ -76,7 +76,7 @@ deleted = " "
 
 [kubernetes]
 format = 'via [ﴱ $context\($namespace\)](bold purple) '
-disabled = false
+disabled = true
 
 # (deactivated because of no space left)
 #
@@ -99,7 +99,8 @@ disabled = true
 [python]
 symbol = " "
 python_binary = "python3"
-disabled = true
+disabled = false
+pyenv_version_name = true
 
 [nodejs]
 format = "via [ $version](bold green) "
@@ -116,3 +117,5 @@ disabled = true
 format = "via [ $version]($style) "
 disabled = false
 
+[aws]
+disabled = true

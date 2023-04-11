@@ -5,7 +5,7 @@ end
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-local colors = require("user/themes/onedark")
+local colors = require("user.colorscheme.theme.onedark")
 
 -- Move to previous/next
 map("n", "<leader>,", ":BufferLineCyclePrev<CR>", opts)
@@ -43,21 +43,20 @@ bufferline.setup({
       italic = false,
     },
   },
-
   options = {
     --[[ mode = "tabs", ]]
     max_name_length = 30,
     max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
     tab_size = 21,
     offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-    separator_style = "thin", -- | "slant" | "thick" | "thin" | { 'any', 'any' },
+    separator_style = "slant", -- | "slant" | "thick" | "thin" | { 'any', 'any' },
     always_show_bufferline = false,
     show_close_icon = false,
     show_tab_indicators = false,
     show_buffer_icons = true,
     show_buffer_close_icons = true,
     indicator = {
-      style = "underline", -- 'icon' | 'underline' | 'none',
+      style = "none", -- 'icon' | 'underline' | 'none',
     },
     hover = {
       enabled = true,

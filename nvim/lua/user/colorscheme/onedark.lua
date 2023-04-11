@@ -1,4 +1,4 @@
-local colors = require("user.themes.onedark")
+local colors = require("user.colorscheme.theme.onedark")
 
 local M = {
 	style = "warm",
