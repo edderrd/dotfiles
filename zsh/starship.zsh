@@ -1,10 +1,14 @@
 # find out which distribution we are running on
 LFILE="/etc/*-release"
 MFILE="/System/Library/CoreServices/SystemVersion.plist"
+_distro=""
+
 if [[ -f $LFILE ]]; then
   _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 elif [[ -f $MFILE ]]; then
   _distro="macos"
+else
+  _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }') 2&> /dev/null
 fi
 
 # set an icon based on the distro
@@ -18,6 +22,7 @@ case $_distro in
     *elementary*)            ICON="";;
     *fedora*)                ICON="";;
     *coreos*)                ICON="";;
+    *amzn*)                  ICON="";;
     *gentoo*)                ICON="";;
     *mageia*)                ICON="";;
     *centos*)                ICON="";;
