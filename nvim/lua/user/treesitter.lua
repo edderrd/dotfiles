@@ -30,7 +30,6 @@ configs.setup({
     "query",
     "markdown",
     "markdown_inline",
-    "help",
   },
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "phpdoc" }, -- List of parsers to ignore installing

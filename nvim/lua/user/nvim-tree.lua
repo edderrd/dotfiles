@@ -30,8 +30,6 @@ nvim_tree.setup({
     disable_netrw = false,
     hijack_netrw = false,
     hijack_unnamed_buffer_when_opening = false,
-    open_on_setup = false,
-    open_on_setup_file = false,
     open_on_tab = false,
     hijack_cursor = false,
     update_cwd = false,
@@ -76,8 +74,8 @@ nvim_tree.setup({
             custom_only = false,
             list = {
                 { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-                { key = "h",                  cb = tree_cb("close_node") },
-                { key = "v",                  cb = tree_cb("vsplit") },
+                { key = "h", cb = tree_cb("close_node") },
+                { key = "v", cb = tree_cb("vsplit") },
                 {
                     key = { "F" },
                     -- cb = ":lua require'user.nvim-tree'.grep_at_current_tree_node()<CR>",

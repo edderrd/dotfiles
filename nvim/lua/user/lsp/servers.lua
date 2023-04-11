@@ -6,7 +6,6 @@ return {
   "html",
   "jsonls",
   "marksman",
-  "phpactor",
   "tailwindcss",
   "rust_analyzer",
   "tsserver",

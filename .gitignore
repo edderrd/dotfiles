@@ -2,4 +2,5 @@
 flatpak*
 user-dirs.dirs
 nvim/npmrc
-
+.swp
+.nvimlog
