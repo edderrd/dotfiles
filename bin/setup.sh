@@ -30,7 +30,7 @@ ln -s "$DOTFILES_FOLDER/.gitconfig" "$HOME/.gitconfig"
 ln -s "$DOTFILES_FOLDER/lazygit" "$HOME/Library/Application Support/lazygit"
 ln -s "$DOTFILES_FOLDER/zsh" "$HOME/.zsh"
 ln -s "$DOTFILES_FOLDER/.zshrc" "$HOME/.zshrc"
-ln -s "$DOTFILES_FOLDER/starship.toml" "$HOME/.config/startship.toml"
+ln -s "$DOTFILES_FOLDER/starship.toml" "$HOME/.config/starship.toml"
 
 # update latest zsh submodules
 cd ~/.zsh && git submodule update --init --remote

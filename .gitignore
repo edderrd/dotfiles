@@ -1,1 +1,5 @@
 .DS_Store
+flatpak*
+user-dirs.dirs
+nvim/npmrc
+

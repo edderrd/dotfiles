@@ -48,7 +48,7 @@ fi
 
 # Deno
 if (( $+commands[deno])); then
-  export PATH="/Users/edder/.deno/bin:$PATH"
+  export PATH="$HOME/.deno/bin:$PATH"
 fi
 
 test -e "/etc/bash_completion.d/climate_completion" && source /etc/bash_completion.d/climate_completion

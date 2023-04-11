@@ -4,6 +4,9 @@
 # solve too many files open error
 #ulimit -n 4096
 
+[[ -f ~/.zsh/brew.zsh ]] && source ~/.zsh/brew.zsh
+[[ -f ~/.zsh/goto.zsh ]] && source ~/.zsh/goto.zsh
+
 # my path
 export PATH=/usr/local/bin:/usr/local/sbin/$HOME/.local/bin:$PATH:$HOME/.bin:/usr/local/share/npm/bin:~/.composer/vendor/bin
 
@@ -50,3 +53,4 @@ alias sshp="ssh -o ProxyCommand='nc -x 127.0.0.1:9999 %h %p' -E /dev/null"
 ## volta
 # export VOLTA_HOME="$HOME/.volta"
 # export PATH="$VOLTA_HOME/bin:$PATH"
+
