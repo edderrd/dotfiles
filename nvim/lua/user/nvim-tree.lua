@@ -17,7 +17,6 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 -- live grep using Telescope inside the current directory under
 -- the cursor (or the parent directory of the current file)
 function M.grep_at_current_tree_node()
-	vim.notify("called!!!!!")
 	local node = require("nvim-tree.lib").get_node_at_cursor()
 	if not node then
 		return
@@ -25,7 +24,27 @@ function M.grep_at_current_tree_node()
 	require("telescope.builtin").live_grep({ search_dirs = { node.absolute_path } })
 end
 
+local function on_attach(bufnr)
+	local api = require("nvim-tree.api")
+
+	local function opts(desc)
+		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	end
+	-- Default mappings. Feel free to modify or remove as you wish.
+	api.config.mappings.default_on_attach(bufnr)
+
+	-- Mappings migrated from view.mappings.list
+	--
+	-- You will need to insert "your code goes here" for any mappings with a custom action_cb
+	vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
+	vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
+	vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
+	vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
+	vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
+end
+
 nvim_tree.setup({
+	on_attach = on_attach,
 	auto_reload_on_write = true,
 	disable_netrw = false,
 	hijack_netrw = false,
@@ -71,17 +90,6 @@ nvim_tree.setup({
 		signcolumn = "yes",
 		mappings = {
 			custom_only = false,
-			list = {
-				{ key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-				{ key = "h", cb = tree_cb("close_node") },
-				{ key = "v", cb = tree_cb("vsplit") },
-				{
-					key = { "F" },
-					-- cb = ":lua require'user.nvim-tree'.grep_at_current_tree_node()<CR>",
-					cb = tree_cb("grep_at_current_tree_node"),
-					mode = "n",
-				},
-			},
 		},
 		number = false,
 		relativenumber = false,

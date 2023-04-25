@@ -8,6 +8,9 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+## disable command history if you pre-pend you command with a space
+setopt HIST_IGNORE_SPACE
+
 # loading RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
