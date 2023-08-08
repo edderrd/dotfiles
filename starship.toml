@@ -22,6 +22,10 @@ vimcmd_symbol = "[╰─](green)"
 # success_symbol = ""
 # error_symbol = ""
 
+[cmd_duration]
+format = "  [took]($style) [$duration]($style) "
+style="141"
+
 # Shows an icon that should be included by zshrc script based on the distribution or os
 [env_var.STARSHIP_DISTRO]
 format = '[$env_value]($style)'
@@ -66,16 +70,16 @@ truncation_symbol = "…/"
 style = "yellow"
 
 [git_status]
-format = '[$modified$untracked$conflicted$ahead_behind]($style)'
+format = '[$modified$untracked$stashed$conflicted$ahead_behind]($style)'
 # format = '[$all_status$ahead_behind]($style) '
 style = "yellow"
 conflicted = "🏳"
 # up_to_date = " "
 up_to_date = ""
 untracked = " "
-ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-behind = "⇣${count}"
+ahead = "󰁞${count}"
+diverged = "󰹺 󰁞${ahead_count} 󰁆${behind_count}"
+behind = "󰁆${count}"
 stashed = " "
 modified = " "
 staged = '[++\($count\)](green)'
