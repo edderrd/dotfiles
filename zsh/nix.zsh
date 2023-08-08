@@ -1,6 +1,10 @@
 autoload bashcompinit          # bash compliation compability with zsh
 bashcompinit
 
+## case insensitive autocomplete
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
 export LC_CTYPE="en_US.UTF-8"
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
