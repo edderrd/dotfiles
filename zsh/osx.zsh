@@ -53,9 +53,3 @@ alias sshp="ssh -o ProxyCommand='nc -x 127.0.0.1:9999 %h %p' -E /dev/null"
 ## volta
 # export VOLTA_HOME="$HOME/.volta"
 # export PATH="$VOLTA_HOME/bin:$PATH"
-
-export PNPM_HOME="/Users/edder/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac

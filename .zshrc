@@ -21,3 +21,6 @@ eval "$(direnv hook zsh)"
 
 # Load Starship
 eval "$(starship init zsh)"
+
+# Starship autocomplete
+# eval "$(starship completions zsh)"
