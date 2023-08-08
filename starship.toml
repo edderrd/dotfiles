@@ -6,12 +6,9 @@ add_newline = true
 # Change command timeout from 500 to 1000 ms
 command_timeout = 3000
 
-# Change the default prompt format
-# ---
-# old config ...
 format = """\
  [╭╴](238)$env_var \
- $all[╰─►](238)$character"""
+ $all(238)$character"""
 
 # new config
 # format = """$env_var $all"""
@@ -19,29 +16,39 @@ format = """\
 # Change the default prompt characters
 [character]
 # old config
-# success_symbol = "[](238)"
-# error_symbol = "[](238)"
-success_symbol = ""
-error_symbol = ""
+success_symbol = "[╰─►](238)"
+error_symbol = "[╰─󰞔](196)"
+vimcmd_symbol = "[╰─](green)"
+# success_symbol = ""
+# error_symbol = ""
 
 # Shows an icon that should be included by zshrc script based on the distribution or os
 [env_var.STARSHIP_DISTRO]
-format = '[$env_value](white)'
+format = '[$env_value]($style)'
 variable = "STARSHIP_DISTRO"
 disabled = false
+style = "gray"
 
 # Shows the username
 [username]
-style_user = "white"
+style_user = "gray"
 style_root = "red"
-format = "[$user]($style) "
+format = " [ ]($style)[$user]($style) "
 disabled = false
-show_always = false
+show_always = false 
 
 [hostname]
-ssh_only = true
-format = "on [$hostname](bold yellow) "
+ssh_only = true 
+format = " [$ssh_symbol$hostname]($style) "
 disabled = false
+style = "cyan"
+ssh_symbol = "  "
+
+[jobs]
+disabled = true 
+symbol = '+ '
+number_threshold = 4
+symbol_threshold = 1
 
 [directory]
 truncation_length = 3
@@ -49,18 +56,19 @@ truncation_symbol = "…/"
 home_symbol = " ~"
 read_only_style = "197"
 read_only = "  "
-format = "at [$path]($style)[$read_only]($read_only_style) "
+format = " [$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
 symbol = " "
-format = "via [$symbol$branch]($style) "
+format = " [$symbol$branch]($style) "
 # truncation_length = 4
 truncation_symbol = "…/"
-style = "bold green"
+style = "yellow"
 
 [git_status]
-format = '[$all_status$ahead_behind]($style) '
-style = "green"
+format = '[$modified$untracked$conflicted$ahead_behind]($style)'
+# format = '[$all_status$ahead_behind]($style) '
+style = "yellow"
 conflicted = "🏳"
 # up_to_date = " "
 up_to_date = ""
@@ -75,25 +83,25 @@ renamed = "襁 "
 deleted = " "
 
 [kubernetes]
-format = 'via [ﴱ $context\($namespace\)](bold purple) '
+format = ' [ﴱ $context\($namespace\)](bold purple) '
 disabled = true
 
 # (deactivated because of no space left)
 #
 [terraform]
-format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
+format = " [ terraform $version]($style) 壟 [$workspace]($style) "
 disabled = true
 
 [vagrant]
-format = "via [ vagrant $version]($style) "
+format = " [ vagrant $version]($style) "
 disabled = true
 
 [docker_context]
-format = "via [ $context](bold blue) "
+format = " [ $context](bold blue) "
 disabled = true
 
 [helm]
-format = "via [ $version](bold purple) "
+format = " [ $version](bold purple) "
 disabled = true
 
 [python]
@@ -103,18 +111,18 @@ disabled = false
 pyenv_version_name = true
 
 [nodejs]
-format = "via [ $version](bold green) "
+format = " [ $version](green) "
 disabled = false
 
 [ruby]
-format = "via [ $version]($style) "
+format = " [ $version]($style) "
 disabled = true
 
 [package]
 disabled = true
 
 [php]
-format = "via [ $version]($style) "
+format = " [ $version]($style) "
 disabled = false
 
 [aws]
