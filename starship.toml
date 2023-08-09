@@ -70,7 +70,7 @@ truncation_symbol = "…/"
 style = "yellow"
 
 [git_status]
-format = '[$modified$untracked$stashed$conflicted$ahead_behind]($style)'
+format = '[$modified$untracked$stashed$conflicted$ahead_behind]($style) '
 # format = '[$all_status$ahead_behind]($style) '
 style = "yellow"
 conflicted = "🏳"
