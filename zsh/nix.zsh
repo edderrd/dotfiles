@@ -101,3 +101,9 @@ fi
 pro() { cd ~/Code/$1; }
 compctl -W ~/Code/ -/ pro
 
+
+# kubernetes cli 
+if (( $+commands[kubectl] )); then
+    alias k="kubectl"
+    source <(kubectl completion zsh)
+fi
