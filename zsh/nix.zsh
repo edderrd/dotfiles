@@ -68,6 +68,11 @@ if (( $+commands[docker] )); then
     function dbash { docker run --rm -i -t -e TERM=xterm --entrypoint /bin/bash $1 }
 fi
 
+alias l='ls -ls'
+alias ls='ls -h'
+alias ll='ls -lsh'
+alias la='ls -lsha'
+
 #######
 # exa #
 #######
@@ -76,11 +81,7 @@ if (( $+commands[exa] )); then
     alias ls='exa --icons --group-directories-first'
     alias ll='exa -lh --icons --group-directories-first'
     alias la='exa -lah --icons --group-directories-first'
-else
-  alias l='ls -ls'
-  alias ls='ls -h'
-  alias ll='ls -lsh'
-  alias la='ls -lsha'
+    alias tree='exa -a --tree --icons --level=3'
 fi
 
 # GO LANG PATH
@@ -102,8 +103,61 @@ pro() { cd ~/Code/$1; }
 compctl -W ~/Code/ -/ pro
 
 
-# kubernetes cli 
+# kubernetes cli
 if (( $+commands[kubectl] )); then
     alias k="kubectl"
     source <(kubectl completion zsh)
 fi
+
+# fuzzy search
+if (( $+commands[fzf] )); then
+    ## brew install fzf fd
+    eval "$(fzf --zsh)"
+
+    # use fd for searching
+    export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cmd-prefix --exclude .git"
+    export FZF_CTRL_T_OPTS="--preview 'bat -n --colors=always --line-range :500 {}'"
+    export FZF_ALT_C_OPTS="--preview 'exa --tree --color=always {} | head -200'"
+
+    _fzf_compgen_path() {
+        fd --hidden --exclude .git . "$1"
+    }
+
+    _fzf_compgen_dir() {
+        fd --type=d --hidden --exclude .git . "$1"
+    }
+
+    _fzf_comprun() {
+      local command=$1
+      shift
+
+      case "$command" in
+        cd)           fzf --preview 'exa --tree --color=always {} | head -200' "$@" ;;
+        export|unset) fzf --preview "eval 'echo \$' {}" "$@" ;;
+        ssh)          fzf --preview 'dig {}' "$@" ;;
+        # *)            fzf --preview "--preview 'bat --edder -n --color=always --line-range :500 {}'" "$@" ;;
+        *)            fzf --preview 'bat -n --color=always --line-range :500 {}' "$@" ;;
+      esac
+    }
+
+    source ~/.zsh/fzf-git.sh/fzf-git.sh
+
+    # Export all the known keymaps with prefix CTRL-g so it can be mapped in tmux
+    export FZF_GIT_BINDKEYS=$(bindkey -p '^g')
+
+fi
+
+# bat (replacement of cat)
+if (( $+commands[bat] )); then
+    # brew install bat
+    export BAT_THEME="TwoDark"
+fi
+
+if (( $+commands[fuck] )); then
+    # brew install thefuck
+    eval $(thefuck --alias)
+    eval $(thefuck --alias fk)
+fi
+

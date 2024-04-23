@@ -23,6 +23,7 @@ if [ "$machine" = "Linux" ]; then
 fi
 ln -s "$DOTFILES_FOLDER/nvim" "$HOME/.config/nvim"
 ln -s "$DOTFILES_FOLDER/.tmux.conf" "$HOME/.tmux.conf"
+ln -s "$DOTFILES_FOLDER/.tmux" "$HOME/.tmux"
 ln -s "$DOTFILES_FOLDER/kitty" "$HOME/.config/kitty"
 ln -s "$DOTFILES_FOLDER/alacritty" "$HOME/.config/alacritty"
 ln -s "$DOTFILES_FOLDER/wezterm" "$HOME/.config/wezterm"
@@ -31,6 +32,7 @@ ln -s "$DOTFILES_FOLDER/lazygit" "$HOME/Library/Application Support/lazygit"
 ln -s "$DOTFILES_FOLDER/zsh" "$HOME/.zsh"
 ln -s "$DOTFILES_FOLDER/.zshrc" "$HOME/.zshrc"
 ln -s "$DOTFILES_FOLDER/starship.toml" "$HOME/.config/starship.toml"
+ln -s "$DOTFILES_FOLDER/spaceship.zsh" "$HOME/.config/spaceship.zsh"
 
 # update latest zsh submodules
 cd ~/.zsh && git submodule update --init --remote

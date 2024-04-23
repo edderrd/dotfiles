@@ -39,17 +39,17 @@ style_user = "gray"
 style_root = "red"
 format = " [ ]($style)[$user]($style) "
 disabled = false
-show_always = false 
+show_always = false
 
 [hostname]
-ssh_only = true 
+ssh_only = true
 format = " [$ssh_symbol$hostname]($style) "
 disabled = false
 style = "cyan"
 ssh_symbol = "  "
 
 [jobs]
-disabled = true 
+disabled = true
 symbol = '+ '
 number_threshold = 4
 symbol_threshold = 1
@@ -127,7 +127,7 @@ disabled = true
 
 [php]
 format = " [ $version]($style) "
-disabled = false
+disabled = true
 
 [aws]
 disabled = true

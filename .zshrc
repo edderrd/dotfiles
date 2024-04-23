@@ -1,6 +1,6 @@
 [[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
 [[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
-[[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
+# [[ -f ~/.zsh/starship.zsh ]] && source ~/.zsh/starship.zsh
 [[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -f ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh ]] && source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -20,7 +20,13 @@
 eval "$(direnv hook zsh)"
 
 # Load Starship
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 # Starship autocomplete
 # eval "$(starship completions zsh)"
+
+## Using spaceship prompt that supports async (temporaly testing)
+source "/opt/homebrew/opt/spaceship/spaceship.zsh"
+
+# Lando
+export PATH="/Users/edder/.lando/bin${PATH+:$PATH}"; #landopath
