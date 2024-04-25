@@ -1,28 +1,13 @@
 return {
-  "nvim-telescope/telescope.nvim",
-  dependencies = {
-    { "nvim-lua/plenary.nvim" },
-    { "nvim-lua/popup.nvim" },
-    { "kyazdani42/nvim-web-devicons" },
-    { "nvim-telescope/telescope-file-browser.nvim" },
-    { "nvim-telescope/telescope-ui-select.nvim" },
-    { "nvim-telescope/telescope-live-grep-args.nvim" },
+  "nvim-telescope/telescope-file-browser.nvim",
+  keys = {
     {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      dependencies = {
-        "junegunn/fzf.vim",
-        dependencies = {
-          {
-            "tpope/vim-dispatch",
-            cmd = { "Make", "Dispatch" },
-          },
-        },
-      },
+      "<leader>sB",
+      ":Telescope file_browser path=%:p:h=%:p:h<cr>",
+      desc = "Browse Files",
     },
   },
-  event = "VeryLazy",
   config = function()
-    require("user.telescope")
+    require("telescope").load_extension("file_browser")
   end,
 }
