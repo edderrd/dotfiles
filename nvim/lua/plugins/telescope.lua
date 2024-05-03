@@ -1,13 +1,8 @@
 return {
-  "nvim-telescope/telescope-file-browser.nvim",
-  keys = {
-    {
-      "<leader>sB",
-      ":Telescope file_browser path=%:p:h=%:p:h<cr>",
-      desc = "Browse Files",
+  "nvim-telescope/telescope.nvim",
+  opts = {
+    defaults = {
+      path_display = { "truncate" },
     },
   },
-  config = function()
-    require("telescope").load_extension("file_browser")
-  end,
 }
