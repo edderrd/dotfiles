@@ -7,12 +7,6 @@ return {
       desc = "Browse Files",
     },
   },
-  opts = {
-    defaults = {
-      -- path_display = { "shorten" },
-      path_display = "shorten",
-    },
-  },
   config = function()
     require("telescope").load_extension("file_browser")
   end,
