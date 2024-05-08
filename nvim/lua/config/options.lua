@@ -3,3 +3,5 @@
 -- Add any additional options here
 vim.opt.relativenumber = false
 -- vim.opt.winbar = "%=%m %f"
+vim.opt.pumblend = 0
+vim.opt.winblend = 0
