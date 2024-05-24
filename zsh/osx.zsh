@@ -53,3 +53,9 @@ alias sshp="ssh -o ProxyCommand='nc -x 127.0.0.1:9999 %h %p' -E /dev/null"
 ## volta
 # export VOLTA_HOME="$HOME/.volta"
 # export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Lando
+export PATH="/Users/edder/.lando/bin${PATH+:$PATH}"; #landopath
+
+source "$HOME/.zsh/spaceship/spaceship.zsh"
+

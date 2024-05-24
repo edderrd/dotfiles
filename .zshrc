@@ -18,15 +18,3 @@
 
 # Load Direnv
 eval "$(direnv hook zsh)"
-
-# Load Starship
-# eval "$(starship init zsh)"
-
-# Starship autocomplete
-# eval "$(starship completions zsh)"
-
-## Using spaceship prompt that supports async (temporaly testing)
-source "/opt/homebrew/opt/spaceship/spaceship.zsh"
-
-# Lando
-export PATH="/Users/edder/.lando/bin${PATH+:$PATH}"; #landopath

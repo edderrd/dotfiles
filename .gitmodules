@@ -10,3 +10,6 @@
 [submodule "zsh/fzf-git.sh"]
 	path = zsh/fzf-git.sh
 	url = git@github.com:junegunn/fzf-git.sh.git
+[submodule "zsh/spaceship"]
+	path = zsh/spaceship
+	url = https://github.com/spaceship-prompt/spaceship-prompt.git
