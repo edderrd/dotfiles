@@ -46,6 +46,13 @@ alias confetti="open raycast://confetti"
 #VI_MODE=true
 #bindkey -v
 
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
 
 alias ssh='export TERM="xterm-256color"; ssh'
 alias sshp="ssh -o ProxyCommand='nc -x 127.0.0.1:9999 %h %p' -E /dev/null"
@@ -58,4 +65,5 @@ alias sshp="ssh -o ProxyCommand='nc -x 127.0.0.1:9999 %h %p' -E /dev/null"
 export PATH="/Users/edder/.lando/bin${PATH+:$PATH}"; #landopath
 
 source "$HOME/.zsh/spaceship/spaceship.zsh"
+
 

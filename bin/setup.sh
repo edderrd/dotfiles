@@ -15,11 +15,11 @@ ln -s "$DOTFILES_FOLDER/.aliases" "$HOME/.aliases"
 
 # Mac only settings
 if [ "$machine" = "Darwin" ] || [ "$machine" = "Mac" ]; then
-	ln -s "$DOTFILES_FOLDER/.osxrc" "$HOME/.osxrc"
+  ln -s "$DOTFILES_FOLDER/.osxrc" "$HOME/.osxrc"
 fi
 # Linux only settings
 if [ "$machine" = "Linux" ]; then
-	ln -s "$DOTFILES_FOLDER/.linuxrc" "$HOME/.linuxrc"
+  ln -s "$DOTFILES_FOLDER/.linuxrc" "$HOME/.linuxrc"
 fi
 ln -s "$DOTFILES_FOLDER/nvim" "$HOME/.config/nvim"
 ln -s "$DOTFILES_FOLDER/.tmux.conf" "$HOME/.tmux.conf"
@@ -33,6 +33,7 @@ ln -s "$DOTFILES_FOLDER/zsh" "$HOME/.zsh"
 ln -s "$DOTFILES_FOLDER/.zshrc" "$HOME/.zshrc"
 ln -s "$DOTFILES_FOLDER/starship.toml" "$HOME/.config/starship.toml"
 ln -s "$DOTFILES_FOLDER/spaceship.zsh" "$HOME/.config/spaceship.zsh"
+ln -s "$DOTFILES_FOLDER/aerospace" "$HOME/.config/aerospace"
 
 # update latest zsh submodules
 cd ~/.zsh && git submodule update --init --remote
