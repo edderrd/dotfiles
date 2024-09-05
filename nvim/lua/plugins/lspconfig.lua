@@ -5,5 +5,15 @@ return {
       underline = true,
       virtual_text = false,
     },
+    servers = {
+      volar = {
+        init_options = {
+          vue = {
+            hybridMode = true,
+          },
+        },
+      },
+      vtsls = {},
+    },
   },
 }
