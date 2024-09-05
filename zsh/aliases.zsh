@@ -39,6 +39,14 @@ if (( $+commands[bat] )); then
     alias cat="bat"
 fi
 
+
+######################
+# docker-compose 
+######################
+if (( $+commands[docker] )); then
+    alias docker-compose="docker compose"
+fi
+
 # Tool replacements
 # alias cat=bat
 # alias ping='prettyping --nolegend'
