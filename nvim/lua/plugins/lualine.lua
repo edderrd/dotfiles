@@ -30,14 +30,16 @@ return {
         globalstatus = false,
         component_separators = "",
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
+        disabled_filetypes = { statusline = { "dashboard", "alpha", "starter", "NvimTree", "Outline", "ministarter" } },
       },
       sections = {
         lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
         lualine_b = {
           LazyVim.lualine.root_dir(),
           { "filetype", icon_only = true, separator = "", padding = { left = 2, right = 0 } },
-          { LazyVim.lualine.pretty_path() },
+          { LazyVim.lualine.pretty_path({ modified_sign = " ●" }) },
+        },
+        lualine_c = {
           {
             "diagnostics",
             symbols = {
@@ -66,14 +68,30 @@ return {
             end,
           },
         },
-        lualine_c = {},
         lualine_x = {
+          -- stylua: ignore
+          {
+            function() return "  " .. require("dap").status() end,
+            cond = function () return package.loaded["dap"] and require("dap").status() ~= "" end,
+            color = LazyVim.ui.fg("Debug"),
+          },
+          -- stylua: ignore
+          {
+            function() return require("noice").api.status.mode.get() end,
+            cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+            color = function() return LazyVim.ui.fg("Constant") end,
+          },
+          -- stylua: ignore
+          {
+            function() return require("noice").api.status.command.get() end,
+            cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+            color = LazyVim.ui.fg("Statement"),
+          },
           {
             require("lazy.status").updates,
             cond = require("lazy.status").has_updates,
             color = LazyVim.ui.fg("Special"),
           },
-          "branch",
           -- {
           --   "diff",
           --   symbols = {
@@ -94,25 +112,7 @@ return {
           -- },
         },
         lualine_y = {
-          "search_result",
-          -- stylua: ignore
-          {
-            function() return require("noice").api.status.command.get() end,
-            cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-            color = LazyVim.ui.fg("Statement"),
-          },
-           -- stylua: ignore
-          {
-            function() return require("noice").api.status.mode.get() end,
-            cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-            color = LazyVim.ui.fg("Constant"),
-          },
-          -- stylua: ignore
-          {
-            function() return "  " .. require("dap").status() end,
-            cond = function () return package.loaded["dap"] and require("dap").status() ~= "" end,
-            color = LazyVim.ui.fg("Debug"),
-          },
+          "branch",
         },
         lualine_z = {
           { "%L%p%%", separator = { right = "" }, padding = { left = 1, right = 1 } },
