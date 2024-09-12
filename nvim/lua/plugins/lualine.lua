@@ -35,7 +35,6 @@ return {
       sections = {
         lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
         lualine_b = {
-          LazyVim.lualine.root_dir(),
           { "filetype", icon_only = true, separator = "", padding = { left = 2, right = 0 } },
           { LazyVim.lualine.pretty_path({ modified_sign = " ●" }) },
         },
@@ -112,7 +111,8 @@ return {
           -- },
         },
         lualine_y = {
-          "branch",
+          { "branch", separator = "" },
+          LazyVim.lualine.root_dir(),
         },
         lualine_z = {
           { "%L%p%%", separator = { right = "" }, padding = { left = 1, right = 1 } },
