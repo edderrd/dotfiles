@@ -74,14 +74,14 @@ alias ll='ls -lsh'
 alias la='ls -lsha'
 
 #######
-# exa #
+# eza #
 #######
-if (( $+commands[exa] )); then
-    alias l='exa -lh --icons --group-directories-first'
-    alias ls='exa --icons --group-directories-first'
-    alias ll='exa -lh --icons --group-directories-first'
-    alias la='exa -lah --icons --group-directories-first'
-    alias tree='exa -a --tree --icons --level=3'
+if (( $+commands[eza] )); then
+    alias l='eza -lh --icons --group-directories-first'
+    alias ls='eza --icons --group-directories-first'
+    alias ll='eza -lh --icons --group-directories-first'
+    alias la='eza -lah --icons --group-directories-first'
+    alias tree='eza -a --tree --icons --level=3'
 fi
 
 # GO LANG PATH
