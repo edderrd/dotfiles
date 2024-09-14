@@ -161,6 +161,15 @@ if (( $+commands[fuck] )); then
     eval $(thefuck --alias fk)
 fi
 
+# fnm
+if [[ -s "$HOME/.local/share/fnm" ]]; then
+  FNM_PATH="$HOME/.local/share/fnm"
+  if [ -d "$FNM_PATH" ]; then
+    export PATH="$HOME/.local/share/fnm:$PATH"
+    eval "`fnm env`"
+  fi
+fi
+
 ## history setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
