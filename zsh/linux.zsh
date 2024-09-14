@@ -13,6 +13,8 @@ if (( $+commands[cargo] )); then
   source $HOME/.keychain/$HOST-sh
 fi
 
+# install neovim binaries directly
+[[ -f /opt/nvim-linux64/bin/nvim ]] && export PATH="$PATH:/opt/nvim-linux64/bin"
 
 # spaceship
 source "$HOME/.zsh/spaceship/spaceship.zsh"
