@@ -5,6 +5,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+config.window_close_confirmation = "AlwaysPrompt"
 config.use_dead_keys = false
 config.font = wezterm.font("ComicCodeLigatures NF")
 config.font_size = 13
