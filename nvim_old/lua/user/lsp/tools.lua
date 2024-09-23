@@ -1,3 +1,0 @@
-return {
-	"php-debug-adapter",
-}
