@@ -23,15 +23,6 @@ alias vi="nvim"
 # git
 alias g="git"
 
-##########
-# ripgrep
-##########
-if (( $+commands[rg] )); then
-    alias grep="rg --color=auto"
-else
-    alias grep="grep --colour=auto"
-fi
-
 ######################
 # bat: cat with colors
 ######################
