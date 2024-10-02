@@ -89,8 +89,7 @@ if (( $+commands[go] )); then
     # mkdir -p $HOME/.go/{bin,src,pkg}
     export GOPATH="$HOME/.go"
     export PATH=$PATH:$GOPATH/bin
-    export GOPATH="$HOME/.go"
-    export GOROOT="$(brew --prefix golang)/libexec"
+    # export GOROOT="$(brew --prefix golang)/libexec"
 fi
 
 [ -s "$HOME/.rover/env" ] && . "$HOME/.rover/env"
@@ -142,7 +141,7 @@ if (( $+commands[fzf] )); then
       esac
     }
 
-    source ~/.zsh/fzf-git.sh/fzf-git.sh
+    # source ~/.zsh/fzf-git.sh/fzf-git.sh
 
     # Export all the known keymaps with prefix CTRL-g so it can be mapped in tmux
     export FZF_GIT_BINDKEYS=$(bindkey -p '^g')
