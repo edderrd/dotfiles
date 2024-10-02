@@ -32,6 +32,15 @@ if [[ $TERM == "wezterm" ]]; then
   alias ssh="wezterm ssh"
 fi
 
+##########
+# ripgrep
+##########
+if (( $+commands[rg] )); then
+    alias grep="rg --color=auto"
+else
+    alias grep="grep --colour=auto"
+fi
+
 ## raycast confetti
 alias confetti="open raycast://confetti"
 
