@@ -36,6 +36,7 @@ ln -s "$DOTFILES_FOLDER/starship.toml" "$HOME/.config/starship.toml"
 ln -s "$DOTFILES_FOLDER/spaceship.zsh" "$HOME/.config/spaceship.zsh"
 ln -s "$DOTFILES_FOLDER/aerospace" "$HOME/.config/aerospace"
 ln -s "$DOTFILES_FOLDER/yazi" "$HOME/.config/yazi"
+ln -s "$DOTFILES_FOLDER/ghostty" "$HOME/.config/ghostty"
 
 # update latest zsh submodules
 cd ~/.zsh && git submodule update --init --remote
