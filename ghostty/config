@@ -1,6 +1,7 @@
 theme = catppuccin-mocha
 
 font-family = ComicCodeLigatures NF
+# adjust-cell-height = 25%
 font-size = 14
 mouse-hide-while-typing = true
 
@@ -10,6 +11,7 @@ macos-option-as-alt = true
 window-padding-y = 6
 window-padding-x = 6
 window-padding-balance = true
+window-save-state = always
 
 # background-blur-radius = 20
 # background-opacity = 0.7
@@ -19,6 +21,3 @@ window-padding-balance = true
 # quick-terminal-animation-duration = 0.2
 
 adjust-underline-position = 4
-
-# cmd+K to clear doesn't work in tmux by default
-keybind = super+k=text:\x0c
