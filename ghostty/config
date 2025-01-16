@@ -21,3 +21,5 @@ window-save-state = always
 # quick-terminal-animation-duration = 0.2
 
 adjust-underline-position = 4
+
+keybind = cmd+shift+f=toggle_fullscreen
