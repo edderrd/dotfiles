@@ -1,10 +1,12 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.php",
     "lazyvim.plugins.extras.lang.tailwind",
     "lazyvim.plugins.extras.lang.toml",
-    "lazyvim.plugins.extras.lang.vue"
+    "lazyvim.plugins.extras.lang.vue",
+    "lazyvim.plugins.extras.util.dot"
   ],
   "news": {
     "NEWS.md": "10960"
