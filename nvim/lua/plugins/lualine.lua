@@ -22,7 +22,20 @@ local bubbles_theme = {
 
 return {
   "nvim-lualine/lualine.nvim",
+  dependencies = {
+    { "bezhermoso/todos-lualine.nvim" },
+    { "folke/todo-comments.nvim" },
+  },
   config = function()
+    local todos_config = {
+      -- Path to count TODOs. Expanded via vim.fn.expand e.g.
+      -- cwd = "%" will count only TODOs on current file
+      -- cwd = "%:h" will count only TODOs within directory of current file
+      -- when empty, will count TODOs in vim.fn.getcwd() (Default)
+      cwd = "%", --
+    }
+    local todos_component = require("todos-lualine").component(todos_config)
+
     require("lualine").setup({
       options = {
         theme = bubbles_theme,
@@ -39,15 +52,6 @@ return {
           { LazyVim.lualine.pretty_path({ modified_sign = " ●" }) },
         },
         lualine_c = {
-          {
-            "diagnostics",
-            symbols = {
-              error = icons.diagnostics.Error,
-              warn = icons.diagnostics.Warn,
-              info = icons.diagnostics.Info,
-              hint = icons.diagnostics.Hint,
-            },
-          },
           {
             "%w",
             cond = function()
@@ -66,7 +70,20 @@ return {
               return vim.bo.buftype == "quickfix"
             end,
           },
+          {
+            "diagnostics",
+            symbols = {
+              error = icons.diagnostics.Error,
+              warn = icons.diagnostics.Warn,
+              info = icons.diagnostics.Info,
+              hint = icons.diagnostics.Hint,
+            },
+          },
+          { todos_component },
         },
+        -- HACK:
+        -- FIX: testing
+        -- TODO:
         lualine_x = {
           -- stylua: ignore
           {
@@ -81,12 +98,12 @@ return {
             color = function() return { fg = Snacks.util.color("Constant") } end,
           },
           -- stylua: ignore
-          {
-            function() return require("noice").api.status.command.get() end,
-            cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-            color = function() return { fg = Snacks.util.color("Statement") } end,
-
-          },
+          -- {
+          --   function() return require("noice").api.status.command.get() end,
+          --   cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+          --   color = function() return { fg = Snacks.util.color("Statement") } end,
+          --
+          -- },
           {
             require("lazy.status").updates,
             cond = require("lazy.status").has_updates,
@@ -115,7 +132,6 @@ return {
         },
         lualine_y = {
           { "branch", separator = "" },
-          LazyVim.lualine.root_dir(),
         },
         lualine_z = {
           { "%L%p%%", separator = { right = "" }, padding = { left = 1, right = 1 } },
@@ -124,13 +140,15 @@ return {
       inactive_sections = {
         lualine_a = {
           { "filetype", icon_only = true, separator = { left = "" }, padding = { left = 1, right = 0 } },
-          { LazyVim.lualine.pretty_path() },
+          { LazyVim.lualine.pretty_path({ modified_sign = " ●" }) },
         },
         lualine_b = {},
         lualine_c = {},
-        lualine_x = {},
+        lualine_x = {
+          { "diagnostics" },
+        },
         lualine_y = {},
-        lualine_z = { { "location", separator = { right = "", left = "" }, padding = { left = 0, right = 0 } } },
+        lualine_z = {},
       },
       tabline = {},
       extensions = { "neo-tree", "lazy" },
