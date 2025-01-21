@@ -35,17 +35,6 @@ return {
       -- cwd = "%:h" will count only TODOs within directory of current file
       -- when empty, will count TODOs in vim.fn.getcwd() (Default)
       cwd = "%",
-      keywords = {
-        -- The icon to show, as well as the keywords to classify under each todo-comments types.
-        -- Identical to how you'd configure folke/todos-comments.nvim, actually.
-        TODO = { icon = " " },
-        FIX = { icon = " ", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
-        HACK = { icon = " " },
-        WARN = { icon = "", alt = { "WARNING" } },
-        PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-        NOTE = { icon = " ", alt = { "INFO" } },
-        TEST = { icon = "⏲ ", alt = { "TESTING", "PASSED", "FAILED" } },
-      },
     }
     local todos_component = require("todos-lualine").component(todos_config)
 
