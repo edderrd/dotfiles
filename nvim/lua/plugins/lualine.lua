@@ -34,7 +34,7 @@ return {
       -- cwd = "%" will count only TODOs on current file
       -- cwd = "%:h" will count only TODOs within directory of current file
       -- when empty, will count TODOs in vim.fn.getcwd() (Default)
-      cwd = "%",
+      cwd = "%:h",
     }
     local todos_component = require("todos-lualine").component(todos_config)
 
