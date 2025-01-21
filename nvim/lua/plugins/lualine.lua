@@ -45,7 +45,9 @@ return {
         globalstatus = false,
         component_separators = "",
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { statusline = { "dashboard", "alpha", "starter", "NvimTree", "Outline", "ministarter" } },
+        disabled_filetypes = {
+          statusline = { "dashboard", "alpha", "starter", "NvimTree", "Outline", "ministarter", "snacks_dashboard" },
+        },
       },
       sections = {
         lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
@@ -84,6 +86,7 @@ return {
           { todos_component },
         },
         lualine_x = {
+          Snacks.profiler.status(),
           -- stylua: ignore
           {
             function() return "  " .. require("dap").status() end,
@@ -97,12 +100,11 @@ return {
             color = function() return { fg = Snacks.util.color("Constant") } end,
           },
           -- stylua: ignore
-          -- {
-          --   function() return require("noice").api.status.command.get() end,
-          --   cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-          --   color = function() return { fg = Snacks.util.color("Statement") } end,
-          --
-          -- },
+          {
+            function() return require("noice").api.status.command.get() end,
+            cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+            color = function() return { fg = Snacks.util.color("Statement") } end,
+          },
           {
             require("lazy.status").updates,
             cond = require("lazy.status").has_updates,
@@ -110,24 +112,6 @@ return {
               return { fg = Snacks.util.color("Special") }
             end,
           },
-          -- {
-          --   "diff",
-          --   symbols = {
-          --     added = icons.git.added,
-          --     modified = icons.git.modified,
-          --     removed = icons.git.removed,
-          --   },
-          --   source = function()
-          --     local gitsigns = vim.b.gitsigns_status_dict
-          --     if gitsigns then
-          --       return {
-          --         added = gitsigns.added,
-          --         modified = gitsigns.changed,
-          --         removed = gitsigns.removed,
-          --       }
-          --     end
-          --   end,
-          -- },
         },
         lualine_y = {
           { "branch", separator = "" },
@@ -150,7 +134,7 @@ return {
         lualine_z = {},
       },
       tabline = {},
-      extensions = { "neo-tree", "lazy" },
+      extensions = { "neo-tree", "lazy", "fzf" },
     })
   end,
 }
