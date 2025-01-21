@@ -22,22 +22,7 @@ local bubbles_theme = {
 
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = {
-    { "bezhermoso/todos-lualine.nvim" },
-    { "folke/todo-comments.nvim" },
-  },
   config = function()
-    local todos_config = {
-      order = { "FIX", "WARN", "TODO", "HACK", "PERF", "NOTE", "TEST" },
-
-      -- Path to count TODOs. Expanded via vim.fn.expand e.g.
-      -- cwd = "%" will count only TODOs on current file
-      -- cwd = "%:h" will count only TODOs within directory of current file
-      -- when empty, will count TODOs in vim.fn.getcwd() (Default)
-      cwd = "%:h",
-    }
-    local todos_component = require("todos-lualine").component(todos_config)
-
     require("lualine").setup({
       options = {
         theme = bubbles_theme,
@@ -83,7 +68,6 @@ return {
               hint = icons.diagnostics.Hint,
             },
           },
-          { todos_component },
         },
         lualine_x = {
           Snacks.profiler.status(),
