@@ -70,6 +70,13 @@ return {
           },
         },
         lualine_x = {
+          {
+            require("lazy.status").updates,
+            cond = require("lazy.status").has_updates,
+            color = function()
+              return { fg = Snacks.util.color("Special") }
+            end,
+          },
           Snacks.profiler.status(),
           -- stylua: ignore
           {
@@ -89,16 +96,9 @@ return {
             cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
             color = function() return { fg = Snacks.util.color("Statement") } end,
           },
-          {
-            require("lazy.status").updates,
-            cond = require("lazy.status").has_updates,
-            color = function()
-              return { fg = Snacks.util.color("Special") }
-            end,
-          },
         },
         lualine_y = {
-          { "branch", separator = "" },
+          { "branch", draw_empty = true, padding = { left = 1, right = 1 } },
         },
         lualine_z = {
           { "%L%p%%", separator = { right = "" }, padding = { left = 1, right = 1 } },
@@ -106,7 +106,7 @@ return {
       },
       inactive_sections = {
         lualine_a = {
-          { "filetype", icon_only = true, separator = { left = "" }, padding = { left = 1, right = 0 } },
+          { "filetype", icon_only = true, separator = { left = "" }, padding = { left = 2, right = 0 } },
           { LazyVim.lualine.pretty_path({ modified_sign = " ●" }) },
         },
         lualine_b = {},
