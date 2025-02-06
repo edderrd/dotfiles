@@ -1,5 +1,4 @@
-edder's dotfiles
-=================
+# edder's dotfiles
 
 These dotfiles are subjective, keyboard shorcuts are focused to be more efficient to use with [40% keyboard](https://github.com/edderrd/qmk-crkbd-keymap).
 
@@ -8,7 +7,8 @@ These dotfiles are subjective, keyboard shorcuts are focused to be more efficien
 ## Pre-requisites
 
 - [Homebrew](https://brew.sh/)
-- [iTerm](https://iterm2.com/)
+- [Ghostty](https://ghostty.org)
+- [NerdFont](https://www.nerdfonts.com/)
 
 ## Install
 
@@ -36,15 +36,7 @@ touch ~/.gitconfig_local # your name and email
 brew install zsh git tmux nvim
 ```
 
-### zsh
-
-My preference is a bare minimum zsh configuration, will be configured with `bin/setup.sh` script. 
-
-```bash
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-```
-
-### common dotfiles
+### Initial Setup
 
 Common dotfiles could be linked directly using the script
 
@@ -64,21 +56,12 @@ brew install --cask font-jetbrains-mono-nerd-font font-jetbrains-mono-nerd-font
 
 I use a [lazyvim](https://www.lazyvim.org/) based neovim configuration, with some extra configuration, refer to the documentation for more information.
 
-### Alacritty Terminal (optional)
+### Ghostty
 
-If you want to use even more minimalistic terminal and GPU accelerated you can use this terminal, dotfiles are ready linked, just need to install it.
-
-```bash
-brew install --cask alacritty
-```
-
-### Kitty Terminal (optional)
-
-This terminal provides speed, although configuration is still in progress it support ligatures without affecting performance.
+Fast and reliable terminal, new in town.
 
 ```bash
-brew install --cask kitty
+brew install --cask ghostty
 ```
 
 **note:** If you don't like the icon you can search for another icon with extension `.icns` and drag and drop in settings `cmd+i` in app.
-
