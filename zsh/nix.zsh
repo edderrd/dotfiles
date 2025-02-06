@@ -74,14 +74,14 @@ alias ll='ls -lsh'
 alias la='ls -lsha'
 
 #######
-# exa #
+# eza #
 #######
-if (( $+commands[exa] )); then
-    alias l='exa -lh --icons --group-directories-first'
-    alias ls='exa --icons --group-directories-first'
-    alias ll='exa -lh --icons --group-directories-first'
-    alias la='exa -lah --icons --group-directories-first'
-    alias tree='exa -a --tree --icons --level=3'
+if (( $+commands[eza] )); then
+    alias l='eza -lh --icons --group-directories-first'
+    alias ls='eza --icons --group-directories-first'
+    alias ll='eza -lh --icons --group-directories-first'
+    alias la='eza -lah --icons --group-directories-first'
+    alias tree='eza -a --tree --icons --level=3'
 fi
 
 # GO LANG PATH
@@ -89,8 +89,7 @@ if (( $+commands[go] )); then
     # mkdir -p $HOME/.go/{bin,src,pkg}
     export GOPATH="$HOME/.go"
     export PATH=$PATH:$GOPATH/bin
-    export GOPATH="$HOME/.go"
-    export GOROOT="$(brew --prefix golang)/libexec"
+    # export GOROOT="$(brew --prefix golang)/libexec"
 fi
 
 [ -s "$HOME/.rover/env" ] && . "$HOME/.rover/env"
@@ -142,7 +141,7 @@ if (( $+commands[fzf] )); then
       esac
     }
 
-    source ~/.zsh/fzf-git.sh/fzf-git.sh
+    # source ~/.zsh/fzf-git.sh/fzf-git.sh
 
     # Export all the known keymaps with prefix CTRL-g so it can be mapped in tmux
     export FZF_GIT_BINDKEYS=$(bindkey -p '^g')
@@ -160,4 +159,22 @@ if (( $+commands[fuck] )); then
     eval $(thefuck --alias)
     eval $(thefuck --alias fk)
 fi
+
+# fnm
+if [[ -s "$HOME/.local/share/fnm" ]]; then
+  FNM_PATH="$HOME/.local/share/fnm"
+  if [ -d "$FNM_PATH" ]; then
+    export PATH="$HOME/.local/share/fnm:$PATH"
+    eval "`fnm env`"
+  fi
+fi
+
+## history setup
+HISTFILE=$HOME/.zhistory
+SAVEHIST=1000
+HISTSIZE=999
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
 

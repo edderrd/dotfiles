@@ -1,13 +1,15 @@
-local colorscheme = "onedark"
-
 return {
-  "navarasu/onedark.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    local onedark = require("onedark")
-    onedark.setup(require("user.colorscheme." .. colorscheme))
-    onedark.load()
-    -- vim.cmd.colorscheme("onedark")
-  end,
+  { "catppuccin/nvim", as = "catppuccin", priority = 1000 },
+  {
+    "LazyVim/LazyVim",
+    opts = function()
+      require("catppuccin").setup({
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
+        style = "warm",
+      })
+      return {
+        colorscheme = "catppuccin",
+      }
+    end,
+  },
 }

@@ -1,12 +1,22 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  dependencies = {
-      "nvim-treesitter/playground",
-      "nvim-treesitter/nvim-treesitter-refactor",
-      "nvim-treesitter/nvim-treesitter-textobjects",
+  opts = {
+    ensure_installed = {
+      "bash",
+      "html",
+      "javascript",
+      "json",
+      "lua",
+      "markdown",
+      "markdown_inline",
+      "python",
+      "query",
+      "regex",
+      "tsx",
+      "typescript",
+      "vim",
+      "yaml",
+      "vue",
+    },
   },
-  config = function()
-    require("user.treesitter")
-  end
 }

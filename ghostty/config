@@ -1,0 +1,25 @@
+theme = catppuccin-mocha
+
+font-family = ComicCodeLigatures NF
+# adjust-cell-height = 25%
+font-size = 14
+mouse-hide-while-typing = true
+
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+
+window-padding-y = 6
+window-padding-x = 6
+window-padding-balance = true
+window-save-state = always
+
+# background-blur-radius = 20
+# background-opacity = 0.7
+
+## allows to show a terminal like quake
+# keybind = global:cmd+s=toggle_quick_terminal
+# quick-terminal-animation-duration = 0.2
+
+adjust-underline-position = 4
+
+keybind = cmd+shift+f=toggle_fullscreen

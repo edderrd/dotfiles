@@ -23,20 +23,19 @@ alias vi="nvim"
 # git
 alias g="git"
 
-##########
-# ripgrep
-##########
-if (( $+commands[rg] )); then
-    alias grep="rg --color=auto"
-else
-    alias grep="grep --colour=auto"
-fi
-
 ######################
 # bat: cat with colors
 ######################
 if (( $+commands[bat] )); then
     alias cat="bat"
+fi
+
+
+######################
+# docker-compose 
+######################
+if (( $+commands[docker] )); then
+    alias docker-compose="docker compose"
 fi
 
 # Tool replacements

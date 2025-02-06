@@ -1,7 +1,7 @@
 edder's dotfiles
 =================
 
-These dotfiles are subjective, keyboard shorcuts are focused to be more efficient to use with [40% keyboard](https://github.com/foostan/crkbd).
+These dotfiles are subjective, keyboard shorcuts are focused to be more efficient to use with [40% keyboard](https://github.com/edderrd/qmk-crkbd-keymap).
 
 ![screenshot](docs/screenshot.png)
 
@@ -38,23 +38,11 @@ brew install zsh git tmux nvim
 
 ### zsh
 
-My preference is to use [prezto](https://github.com/sorin-ionescu/prezto), but also there's configurations for [oh-my-zsh](https://ohmyz.sh/)
-
-#### setup oh-my-zsh
-
-Follow [installation process](https://ohmyz.sh/#install)
-
-Then link `.zshrc`, if the file already exists you can delete it and link from dotfiles repository.
+My preference is a bare minimum zsh configuration, will be configured with `bin/setup.sh` script. 
 
 ```bash
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ```
-
-#### setup prezto
-
-Prezto seems to have better speed overtime, also I created a [fork repository](https://github.com/edderrd/prezto) that includes my settings and a [agnoster](https://github.com/agnoster/agnoster-zsh-theme) theme that have extras like vim mode and git extra information.
-
-Installation process could be found in [the repository](https://github.com/edderrd/prezto#installation)
 
 ### common dotfiles
 
@@ -74,9 +62,7 @@ brew install --cask font-jetbrains-mono-nerd-font font-jetbrains-mono-nerd-font
 
 ### Neovim
 
-I use [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins, installation process is described in [the repository](https://github.com/junegunn/vim-plug#neovim)
-
-Then open neovim and proceed with plugins installation.
+I use a [lazyvim](https://www.lazyvim.org/) based neovim configuration, with some extra configuration, refer to the documentation for more information.
 
 ### Alacritty Terminal (optional)
 
