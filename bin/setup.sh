@@ -46,3 +46,6 @@ cd ~/.zsh && git submodule update --init --remote
 
 ## clone tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/catppuccin/tmux ~/.tmux/plugins/tmux
+git clone https://github.com/edderrd/hostname-tmux ~/.tmux/plugins/hostname-tmux
+git clone https://github.com/edderrd/brew-tmux ~/.tmux/plugins/brew-tmux
