@@ -5,7 +5,7 @@ local bubbles_theme = {
   normal = {
     a = { fg = mocha.base, bg = mocha.peach },
     b = { fg = mocha.text, bg = mocha.surface0 },
-    c = { fg = mocha.text },
+    c = { fg = mocha.text, bg = mocha.base },
 
     z = { fg = mocha.base, bg = mocha.green },
   },
