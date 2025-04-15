@@ -23,3 +23,5 @@ window-save-state = always
 adjust-underline-position = 4
 
 keybind = cmd+shift+f=toggle_fullscreen
+
+cursor-style = bar
