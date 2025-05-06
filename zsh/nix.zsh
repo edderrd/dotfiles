@@ -169,6 +169,14 @@ if [[ -s "$HOME/.local/share/fnm" ]]; then
   fi
 fi
 
+## Deno
+if [[ -s "$HOME/.deno/env" ]]; then
+  . "$HOME/.deno/env"
+  # Add deno completions to search path
+  if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
+fi
+## Deno
+
 ## history setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
