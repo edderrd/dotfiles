@@ -11,5 +11,16 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.pumblend = 0
 vim.opt.winblend = 0
 
+-- show window borders
+-- vim.o.winborder = "solid"
+
 -- use intelephense for php
 vim.g.lazyvim_php_lsp = "intelephense"
+
+-- sets root directly
+-- vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" } -- original
+vim.g.root_spec = { "cwd" }
+
+-- eslint autoformat
+vim.g.lazyvim_eslint_auto_format = true
+-- vim.g.lazyvim_prettier_needs_config = false
