@@ -66,6 +66,7 @@ if (( $+commands[docker] )); then
     function dent { docker exec -i -t $1 /bin/bash }
     # run bash for any image
     function dbash { docker run --rm -i -t -e TERM=xterm --entrypoint /bin/bash $1 }
+    eval "$(docker completion zsh)"
 fi
 
 alias l='ls -ls'
