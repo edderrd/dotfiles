@@ -23,7 +23,9 @@ window-save-state = always
 # quick-terminal-animation-duration = 0.2
 
 adjust-underline-position = 4
+cursor-style = bar
+copy-on-select = true
 
 keybind = cmd+shift+f=toggle_fullscreen
 
-cursor-style = bar
+# custom-shader = ./shaders/cursor_smear_fade.glsl
