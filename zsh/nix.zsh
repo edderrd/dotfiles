@@ -178,6 +178,17 @@ if [[ -s "$HOME/.deno/env" ]]; then
 fi
 ## Deno
 
+## Bun
+if [[ -s "$HOME/.bun/_bun" ]]; then
+  # bun completions
+  [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+  # bun
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
+fi
+## Bun
+
 ## history setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
