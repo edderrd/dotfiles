@@ -189,6 +189,8 @@ if [[ -s "$HOME/.bun/_bun" ]]; then
 fi
 ## Bun
 
+source ~/dotfiles/zsh/zsh-nx-completion/nx-completion.plugin.zsh
+
 ## history setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000

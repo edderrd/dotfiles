@@ -13,3 +13,6 @@
 [submodule "zsh/spaceship"]
 	path = zsh/spaceship
 	url = https://github.com/spaceship-prompt/spaceship-prompt.git
+[submodule "zsh/zsh-nx-completion"]
+	path = zsh/zsh-nx-completion
+	url = git@github.com:jscutlery/nx-completion.git
