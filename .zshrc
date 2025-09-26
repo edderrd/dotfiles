@@ -4,6 +4,7 @@
 [[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -f ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh ]] && source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+[[ -f ~/.zsh/zsh-nx-completion/nx-completion.plugin.zsh ]] && source ~/.zsh/zsh-nx-completion/nx-completion.plugin.zsh >/dev/null 2>&1;
 
 # OS Specific Files
 [[ "$machine" = "Mac" ]] && source ~/.zsh/osx.zsh

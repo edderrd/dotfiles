@@ -189,7 +189,12 @@ if [[ -s "$HOME/.bun/_bun" ]]; then
 fi
 ## Bun
 
-source ~/dotfiles/zsh/zsh-nx-completion/nx-completion.plugin.zsh
+
+# Load Angular CLI autocompletion.
+if command -v ng >/dev/null 2>&1; then
+  source <(ng completion script)
+fi
+
 
 ## history setup
 HISTFILE=$HOME/.zhistory
