@@ -1,5 +1,5 @@
 # usage: ghostty +list-themes
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 # usage: ghostty +list-fonts
 font-family = ComicCodeLigatures NF
@@ -28,4 +28,5 @@ copy-on-select = true
 
 keybind = cmd+shift+f=toggle_fullscreen
 
-# custom-shader = ./shaders/cursor_smear_fade.glsl
+# custom-shader = ./shaders/cursor_blaze_tapered.glsl
+custom-shader = ./shaders/cursor_blaze.glsl
