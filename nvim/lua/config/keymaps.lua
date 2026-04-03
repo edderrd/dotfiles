@@ -7,3 +7,5 @@ vim.keymap.set("n", ";x", ":x!<cr>", { silent = true, noremap = true, desc = "Sa
 
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true, noremap = true, desc = "Move line up" }) -- move line up(v)
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true, noremap = true, desc = "Move line down" }) -- move line down(v)
+
+vim.keymap.set("v", "p", '"_dP', { noremap = true, desc = "Replace a word without updating the registry" })
