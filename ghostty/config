@@ -30,3 +30,9 @@ keybind = cmd+shift+f=toggle_fullscreen
 
 # custom-shader = ./shaders/cursor_blaze_tapered.glsl
 custom-shader = ./shaders/cursor_blaze.glsl
+# custom-shader = ./shaders/manga_slash.glsl
+
+
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = no-bell,notify
+notify-on-command-finish-after = 5s

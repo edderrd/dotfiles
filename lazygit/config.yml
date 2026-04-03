@@ -22,8 +22,8 @@ gui:
   commitLength:
     show: true
 git:
-  paging:
-    colorArg: always
+  pagers:
+    - colorArg: always
   merging:
     manualCommit: false
     args: ""
