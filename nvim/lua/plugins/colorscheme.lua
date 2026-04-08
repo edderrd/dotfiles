@@ -1,13 +1,18 @@
 return {
   {
     "catppuccin/nvim",
-    lazy = true,
+    priority = 1000,
     name = "catppuccin",
     opts = {
-      flavour = "mocha", -- latte, frappe, macchiato, mocha
-      background = { -- :h background
-        light = "latte",
-        dark = "mocha",
+      -- flavour = "mocha" -- Changed in plugin name at the bottom
+      -- transparent_background = true,
+      lsp_styles = {
+        underlines = {
+          errors = { "undercurl" },
+          hints = { "undercurl" },
+          warnings = { "undercurl" },
+          information = { "undercurl" },
+        },
       },
       integrations = {
         aerial = true,
@@ -24,26 +29,14 @@ return {
         leap = true,
         lsp_trouble = true,
         mason = true,
-        markdown = true,
         mini = true,
-        native_lsp = {
-          enabled = true,
-          underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
-          },
-        },
         navic = { enabled = true, custom_bg = "lualine" },
         neotest = true,
         neotree = true,
         noice = true,
         notify = true,
-        semantic_tokens = true,
         snacks = true,
         telescope = true,
-        treesitter = true,
         treesitter_context = true,
         which_key = true,
       },
@@ -53,7 +46,7 @@ return {
     "LazyVim/LazyVim",
     opts = function()
       return {
-        colorscheme = "catppuccin",
+        colorscheme = "catppuccin-mocha",
       }
     end,
   },
