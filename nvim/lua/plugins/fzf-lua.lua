@@ -9,7 +9,6 @@ return {
     },
     files = {
       previewer = false,
-      header = false,
     },
     buffers = {
       previewer = false,
