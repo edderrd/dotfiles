@@ -195,6 +195,8 @@ if command -v ng >/dev/null 2>&1; then
   source <(ng completion script)
 fi
 
+## local bin path
+export PATH="$HOME/.local/bin:$PATH"
 
 ## history setup
 HISTFILE=$HOME/.zhistory
