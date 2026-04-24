@@ -44,24 +44,7 @@ fi
 ## raycast confetti
 alias confetti="open raycast://confetti"
 
-## using vim keybindings in terminal
-# bindkey -v
-#zle-keymap-select () {
-  #case $KEYMAP in
-    #vicmd) print -rn -- $terminfo[cvvis];; # block cursor
-    #viins|main) print -rn -- $terminfo[cnorm];; # less visible cursor
-  #esac
-#}
-#VI_MODE=true
-#bindkey -v
-
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
+FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
 
 # pnpm
 export PNPM_HOME="/Users/edder/Library/pnpm"
@@ -74,13 +57,10 @@ esac
 alias ssh='export TERM="xterm-256color"; ssh'
 alias sshp="ssh -o ProxyCommand='nc -x 127.0.0.1:9999 %h %p' -E /dev/null"
 
-## volta
-# export VOLTA_HOME="$HOME/.volta"
-# export PATH="$VOLTA_HOME/bin:$PATH"
-
 # Lando
 export PATH="/Users/edder/.lando/bin${PATH+:$PATH}"; #landopath
 
-source "$HOME/.zsh/spaceship/spaceship.zsh"
-
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/edder/.docker/completions $fpath)
+# End of Docker CLI completions
 

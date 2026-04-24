@@ -19,3 +19,14 @@
 
 # Load Direnv
 eval "$(direnv hook zsh)"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/edder/.docker/completions $fpath)
+# End of Docker CLI completions
+
+# Run compinit once with a 24h cache to avoid slow startup
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi

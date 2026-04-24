@@ -1,8 +1,10 @@
 autoload bashcompinit          # bash compliation compability with zsh
 bashcompinit
 
+# ensure local completions dir is in FPATH for cached completions
+[[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]] && export FPATH="$HOME/.zsh/completions:$FPATH"
+
 ## case insensitive autocomplete
-autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 export LC_CTYPE="en_US.UTF-8"
@@ -66,7 +68,6 @@ if (( $+commands[docker] )); then
     function dent { docker exec -i -t $1 /bin/bash }
     # run bash for any image
     function dbash { docker run --rm -i -t -e TERM=xterm --entrypoint /bin/bash $1 }
-    eval "$(docker completion zsh)"
 fi
 
 alias l='ls -ls'
@@ -106,7 +107,10 @@ compctl -W ~/Code/ -/ pro
 # kubernetes cli
 if (( $+commands[kubectl] )); then
     alias k="kubectl"
-    source <(kubectl completion zsh)
+    local _kubectl_cache="$HOME/.zsh/completions/_kubectl"
+    if [[ ! -f "$_kubectl_cache" || $(command -v kubectl) -nt "$_kubectl_cache" ]]; then
+        kubectl completion zsh > "$_kubectl_cache"
+    fi
 fi
 
 # fuzzy search
@@ -155,26 +159,21 @@ if (( $+commands[bat] )); then
     export BAT_THEME="TwoDark"
 fi
 
-if (( $+commands[fuck] )); then
-    # brew install thefuck
-    eval $(thefuck --alias)
-    eval $(thefuck --alias fk)
+if (( $+commands[thefuck] )); then
+    # lazy-load thefuck — Python startup is slow, defer until first use
+    fuck() {
+        unfunction fuck fk 2>/dev/null
+        eval $(thefuck --alias)
+        eval $(thefuck --alias fk)
+        fuck "$@"
+    }
+    fk() { fuck "$@" }
 fi
 
-# fnm
-if [[ -s "$HOME/.local/share/fnm" ]]; then
-  FNM_PATH="$HOME/.local/share/fnm"
-  if [ -d "$FNM_PATH" ]; then
-    export PATH="$HOME/.local/share/fnm:$PATH"
-    eval "`fnm env`"
-  fi
-fi
 
 ## Deno
 if [[ -s "$HOME/.deno/env" ]]; then
   . "$HOME/.deno/env"
-  # Add deno completions to search path
-  if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
 fi
 ## Deno
 
@@ -191,8 +190,11 @@ fi
 
 
 # Load Angular CLI autocompletion.
-if command -v ng >/dev/null 2>&1; then
-  source <(ng completion script)
+if (( $+commands[ng] )); then
+    local _ng_cache="$HOME/.zsh/completions/_ng"
+    if [[ ! -f "$_ng_cache" || $(command -v ng) -nt "$_ng_cache" ]]; then
+        ng completion script > "$_ng_cache"
+    fi
 fi
 
 ## local bin path
@@ -207,3 +209,5 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
+# spaceship
+source "$HOME/.zsh/spaceship/spaceship.zsh"
