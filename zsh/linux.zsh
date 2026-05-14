@@ -9,6 +9,9 @@ export PATH=$PATH:$HOME/.bin
 # Loading the SSH key
 # sudo apt install keychain
 if (( $+commands[cargo] )); then
+  if (( !$+commands[keychain] )); then
+    echo "you must install keychain"
+  fi
   /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa
   source $HOME/.keychain/$HOST-sh
 fi
