@@ -109,6 +109,7 @@ if (( $+commands[kubectl] )); then
     alias k="kubectl"
     local _kubectl_cache="$HOME/.zsh/completions/_kubectl"
     if [[ ! -f "$_kubectl_cache" || $(command -v kubectl) -nt "$_kubectl_cache" ]]; then
+        mkdir -p "$HOME/.zsh/completions"
         kubectl completion zsh > "$_kubectl_cache"
     fi
 fi
