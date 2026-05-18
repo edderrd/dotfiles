@@ -1,4 +1,5 @@
 export TERM="xterm-256color"   # pretty colors
+export COLORTERM=truecolor  # missing correct colors
 
 # solve too many files open error
 #ulimit -n 4096
@@ -18,3 +19,4 @@ fi
 
 # install neovim binaries directly
 [[ -f /opt/nvim-linux64/bin/nvim ]] && export PATH="$PATH:/opt/nvim-linux64/bin"
+
