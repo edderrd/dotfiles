@@ -24,7 +24,13 @@ window-save-state = always
 
 adjust-underline-position = 4
 cursor-style = bar
-copy-on-select = true
+
+# copy-on-select = true
+copy-on-select = clipboard
+clipboard-read = allow
+clipboard-write = allow
+clipboard-paste-protection = false
+clipboard-paste-bracketed-safe = true
 
 keybind = cmd+shift+f=toggle_fullscreen
 
@@ -34,3 +40,4 @@ custom-shader = ./shaders/cursor_blaze.glsl
 notify-on-command-finish = unfocused
 notify-on-command-finish-action = no-bell,notify
 notify-on-command-finish-after = 5s
+
