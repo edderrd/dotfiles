@@ -132,7 +132,7 @@ keybinding:
     pasteCommits: "v"
     tagCommit: "T"
     checkoutCommit: "<space>"
-    resetCherryPick: "<c-R>"
+    resetCherryPick: "<c-r>"
   stash:
     popStash: "g"
   commitFiles:
