@@ -22,8 +22,9 @@ gui:
   commitLength:
     show: true
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
+      type: rawGit
   merging:
     manualCommit: false
     args: ""
