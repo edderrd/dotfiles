@@ -201,6 +201,11 @@ fi
 ## local bin path
 export PATH="$HOME/.local/bin:$PATH"
 
+## tmux-remux
+if [[ -s "$HOME/.tmux/plugins/tmux-remux" ]]; then
+  export PATH="$HOME/.tmux/plugins/tmux-remux/bin:$PATH"
+fi
+
 ## history setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
