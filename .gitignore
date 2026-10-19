@@ -6,3 +6,4 @@ nvim/npmrc
 .nvimlog
 zsh/completions
 *.backup-*
+opencode/service.json
