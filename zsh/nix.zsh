@@ -206,6 +206,11 @@ if [[ -s "$HOME/.tmux/plugins/tmux-remux" ]]; then
   export PATH="$HOME/.tmux/plugins/tmux-remux/bin:$PATH"
 fi
 
+## opencode
+if [[ -s "$HOME/.opencode/bin" ]]; then
+  export PATH="$HOME/.opencode/bin:$PATH"
+fi
+
 ## history setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
