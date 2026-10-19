@@ -5,3 +5,4 @@ nvim/npmrc
 .swp
 .nvimlog
 zsh/completions
+*.backup-*

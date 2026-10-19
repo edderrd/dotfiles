@@ -8,5 +8,33 @@
         "Authorization": "Bearer {env:CONTEXT7_API_KEY}"
       }
     }
+  },
+  "$schema": "https://opencode.ai/config.json",
+  "model": "freellmapi/auto",
+  "provider": {
+    "freellmapi": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "FreeLLMAPI",
+      "options": {
+        "baseURL": "http://127.0.0.1:31415/v1",
+        "apiKey": "{env:FREELLMAPI_API_KEY}"
+      },
+      "models": {
+        "auto": {
+          "name": "Auto (router picks the best available model)",
+          "limit": {
+            "context": 128000,
+            "output": 8192
+          }
+        },
+        "fusion": {
+          "name": "Fusion (panel of models answer in parallel, a judge synthesizes one answer)",
+          "limit": {
+            "context": 128000,
+            "output": 8192
+          }
+        }
+      }
+    }
   }
 }
