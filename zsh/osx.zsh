@@ -64,3 +64,7 @@ export PATH="/Users/edder/.lando/bin${PATH+:$PATH}"; #landopath
 fpath=(/Users/edder/.docker/completions $fpath)
 # End of Docker CLI completions
 
+# mise version manager
+if [[ -s "${HOME}/.local/bin/mise" ]]; then
+  eval "$(${HOME}/.local/bin/mise activate zsh)"
+fi
