@@ -1,6 +1,23 @@
 {
   "$schema": "https://opencode.ai/v2/cli.json",
   "theme": {
-    "name": "catppuccin"
+    "name": "system"
+  },
+  "keybinds": {
+    "leader": "ctrl+o",
+    "app.exit": "<leader>q",
+    "open.menu": "<leader>o",
+    "theme.switch": "<leader>t",
+    "session.sidebar.toggle": "<leader>b,ctrl+e",
+    "session.page.up": "ctrl+u",
+    "session.page.down": "ctrl+d",
+    "session.message.next": "<leader>n",
+    "session.message.previous": "<leader>p",
+    "messages.copy": "<leader>y",
+    "model.list": "<leader>m",
+    "command.palette.show": "<leader>space"
+  },
+  "session": {
+    "sidebar": "hide"
   }
 }
