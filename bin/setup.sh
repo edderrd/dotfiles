@@ -38,6 +38,7 @@ ln -s "$DOTFILES_FOLDER/aerospace" "$HOME/.config/aerospace"
 ln -s "$DOTFILES_FOLDER/yazi" "$HOME/.config/yazi"
 ln -s "$DOTFILES_FOLDER/ghostty" "$HOME/.config/ghostty"
 ln -s "$DOTFILES_FOLDER/opencode" "$HOME/.config/opencode"
+ln -s "$DOTFILES_FOLDER/rex" "$HOME/.config/rex"
 
 # update latest zsh submodules
 cd ~/.zsh && git submodule update --init --remote
