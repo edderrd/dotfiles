@@ -5,7 +5,7 @@ return {
     name = "catppuccin",
     opts = {
       -- flavour = "mocha" -- Changed in plugin name at the bottom
-      -- transparent_background = true,
+      transparent_background = true,
       lsp_styles = {
         underlines = {
           errors = { "undercurl" },
